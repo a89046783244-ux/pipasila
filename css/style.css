@@ -32,7 +32,7 @@ body {
   font-size: 15px;
   line-height: 1.6;
   color: var(--dark);
-  background: var(--white);
+  background: var(--black);
   overflow-x: hidden;
 }
 img { display: block; max-width: 100%; }
@@ -127,7 +127,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   top: 0; left: 0; right: 0;
   z-index: 1000;
   height: 68px;
-  background: rgba(10,10,10,.92);
+  background: var(--black);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid rgba(255,255,255,.06);
