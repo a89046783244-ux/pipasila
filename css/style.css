@@ -1965,6 +1965,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 @media (max-width: 768px) {
   .nav-links, .nav-cta { display: none; }
   .burger { display: flex; margin-left: 0; }
+  .nav-inner { gap: 16px; }
 
   .nav-links {
     position: fixed;
