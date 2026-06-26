@@ -1,4 +1,5 @@
 <?php
+date_default_timezone_set('Europe/Moscow');
 header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: POST');

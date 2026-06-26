@@ -1,4 +1,5 @@
 <?php
+date_default_timezone_set('Europe/Moscow');
 session_start();
 
 $dbPath = __DIR__ . '/../data/pipasila.db';
