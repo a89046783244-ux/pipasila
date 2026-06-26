@@ -453,9 +453,9 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
    MARQUEE
 ══════════════════════════════════════ */
 .marquee-strip {
-  background: var(--off-white);
-  border-top: 1px solid #E5E5E5;
-  border-bottom: 1px solid #E5E5E5;
+  background: var(--black-2);
+  border-top: 1px solid rgba(255,255,255,.06);
+  border-bottom: 1px solid rgba(255,255,255,.06);
   height: 52px;
   overflow: hidden;
   display: flex;
@@ -474,7 +474,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   font-weight: 700;
   letter-spacing: .12em;
   text-transform: uppercase;
-  color: var(--dark);
+  color: rgba(255,255,255,.6);
 }
 .marquee-track .dot {
   color: var(--accent);
