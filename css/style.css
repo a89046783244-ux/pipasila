@@ -684,6 +684,14 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   flex: 1;
 }
 
+.cap-size {
+  font-size: 12px;
+  color: #999;
+  margin-top: 4px;
+  margin-bottom: 8px;
+  letter-spacing: .03em;
+}
+
 .cap-colors { display: flex; gap: 8px; }
 .ccol {
   width: 22px; height: 22px;
