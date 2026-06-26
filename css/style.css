@@ -1992,7 +1992,6 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 @media (max-width: 500px) {
   .hero-title { font-size: clamp(4rem, 18vw, 6rem); }
-  .hero-badge-1, .hero-badge-2 { display: none; }
   .hero-stats { gap: 16px; flex-wrap: wrap; justify-content: center; }
   .hstat-sep { display: none; }
 
