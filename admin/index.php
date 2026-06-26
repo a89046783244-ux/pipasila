@@ -33,16 +33,12 @@ if (isset($_GET['export']) && isAuth()) {
     try {
         $db = new PDO("sqlite:$dbPath");
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
         $stmt = $db->query("SELECT id, email, name, phone, type, product, created_at FROM submissions ORDER BY id DESC");
-
         header('Content-Type: text/csv; charset=utf-8');
         header('Content-Disposition: attachment; filename="pipasila-submissions.csv"');
-
         $out = fopen('php://output', 'w');
         fprintf($out, chr(0xEF) . chr(0xBB) . chr(0xBF));
         fputcsv($out, ['ID', 'Email', 'Имя', 'Телефон', 'Тип', 'Товар', 'Дата']);
-
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             fputcsv($out, $row);
         }
@@ -52,6 +48,19 @@ if (isset($_GET['export']) && isAuth()) {
         http_response_code(500);
         exit;
     }
+}
+
+if (isset($_GET['backup']) && $_GET['backup'] === 'dl' && isAuth()) {
+    $file = $_GET['file'] ?? '';
+    if (strpos($file, '/var/backups/pipasila/') !== 0 || !file_exists($file) || is_dir($file)) {
+        http_response_code(404);
+        exit;
+    }
+    $name = basename($file);
+    header('Content-Type: application/octet-stream');
+    header('Content-Disposition: attachment; filename="' . $name . '"');
+    readfile($file);
+    exit;
 }
 
 function getStats($db) {
@@ -94,10 +103,17 @@ a:hover { text-decoration: underline; }
 .admin-header nav { display:flex; gap:16px; font-size:14px; }
 .badge { background:#222; padding:4px 10px; border-radius:6px; font-size:13px; }
 
-.stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:12px; margin-bottom:32px; }
+.stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:12px; margin-bottom:24px; }
 .stat-card { background:#1a1a1a; padding:16px; border-radius:8px; }
 .stat-card .num { font-size:28px; font-weight:700; color:#fff; }
 .stat-card .label { font-size:12px; color:#888; margin-top:4px; }
+
+.backup-bar { display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin-bottom:24px; padding:12px 16px; background:#1a1a1a; border-radius:8px; font-size:13px; }
+.backup-bar .btn { padding:6px 14px; background:#E53935; border:0; border-radius:6px; color:#fff; font-weight:600; cursor:pointer; font-size:13px; text-decoration:none; }
+.backup-bar .btn:hover { background:#c62828; }
+.backup-dot { width:6px; height:6px; border-radius:50%; display:inline-block; margin-right:4px; }
+.backup-dot-green { background:#4CAF50; }
+.backup-dot-red { background:#E53935; }
 
 table { width:100%; border-collapse:collapse; font-size:13px; }
 th { text-align:left; padding:10px 12px; background:#1a1a1a; color:#888; font-weight:600; font-size:11px; text-transform:uppercase; letter-spacing:.05em; }
@@ -107,13 +123,10 @@ tr:hover td { background:#111; }
 .pagination a { padding:6px 12px; background:#1a1a1a; border-radius:6px; }
 .pagination .active { background:#E53935; color:#fff; }
 
-.export-btn { display:inline-flex; align-items:center; gap:6px; padding:8px 16px; background:#E53935; border:none; border-radius:8px; color:#fff; font-size:14px; font-weight:600; cursor:pointer; }
-.export-btn:hover { background:#c62828; }
-
 @media (max-width:600px) {
     .admin-wrap { padding:16px; }
     .stats { grid-template-columns:repeat(2,1fr); }
-    th, td { padding:8px; }
+    th, td { padding:8px; font-size:12px; }
     td:nth-child(5), th:nth-child(5) { display:none; }
 }
 </style>
@@ -130,7 +143,6 @@ tr:hover td { background:#111; }
 <?php if (isset($error)): ?><div class="error"><?=htmlspecialchars($error)?></div><?php endif; ?>
 </div>
 </div>
-</body></html>
 <?php exit; endif;
 
 $page = max(1, intval($_GET['page'] ?? 1));
@@ -160,19 +172,28 @@ try {
 <div class="stat-card"><div class="num"><?=$notif?></div><div class="label">Ожидания</div></div>
 </div>
 
+<?php
+$backupDir = '/var/backups/pipasila';
+$backupFiles = is_dir($backupDir) ? glob("$backupDir/pipasila-*") : [];
+rsort($backupFiles);
+$ydConf = '/etc/pipasila/yandex-backup.conf';
+$ydOk = file_exists($ydConf) && !empty(parse_ini_file($ydConf)['TOKEN'] ?? '');
+?>
+<div class="backup-bar">
+<span><span class="backup-dot <?=$ydOk?'backup-dot-green':'backup-dot-red'?>"></span>Яндекс.Диск: <?=$ydOk?'работает':'не подключён'?></span>
+<span>Бэкапов: <?=count($backupFiles)?></span>
+<?php if ($backupFiles): $last = basename($backupFiles[0]); ?>
+<a href="?backup=dl&file=<?=rawurlencode($backupFiles[0])?>" class="btn">Скачать последний</a>
+<?php endif; ?>
+</div>
+
 <?php if (empty($rows)): ?>
 <p style="color:#666;text-align:center;padding:40px 0;">Пока нет записей</p>
 <?php else: ?>
 <table>
 <thead>
 <tr>
-<th>ID</th>
-<th>Email</th>
-<th>Имя</th>
-<th>Телефон</th>
-<th>Тип</th>
-<th>Товар</th>
-<th>Дата</th>
+<th>ID</th><th>Email</th><th>Имя</th><th>Телефон</th><th>Тип</th><th>Товар</th><th>Дата</th>
 </tr>
 </thead>
 <tbody>
