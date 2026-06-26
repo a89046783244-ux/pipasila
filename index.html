@@ -212,51 +212,59 @@
     </div>
 
     <div class="caps-grid">
-      <div class="cap-card cap-card--dark" data-reveal="" data-reveal-delay="0">
+      <div class="cap-card cap-card-sold cap-card-sold--dark" data-reveal="" data-reveal-delay="0">
         <div class="cap-card-img">
           <img src="images/cap-red.jpg" alt="PIPA RED — бейсболка белый передок бордовая сетка, купить Казань" loading="lazy">
-          <div class="cap-label label-hit"><i class="fas fa-crown"></i> ХИТ</div>
+          <div class="soldout-overlay">
+            <span>SOLD OUT</span>
+          </div>
         </div>
         <div class="cap-card-body">
           <div class="cap-card-top">
             <h3>PIPA RED</h3>
-            <span class="cap-price">3 999 ₽</span>
+            <span class="cap-price-sold">3 999 ₽</span>
           </div>
           <p>Белый передок, бордовая сетка, бирюзовый козырёк. Нашивка P с синей точкой. Кнопка-корона. Snapback.</p>
-          <button class="cap-buy-btn" onclick="showOrder('PIPA RED — 3 999 ₽')">
-            КУПИТЬ <i class="fas fa-arrow-right"></i>
+          <button class="cap-buy-btn cap-notify-btn" onclick="showNotify('PIPA RED')">
+            <i class="fas fa-bell"></i> Уведомить о поступлении
           </button>
         </div>
       </div>
 
-      <div class="cap-card" data-reveal="" data-reveal-delay="1">
+      <div class="cap-card cap-card-sold" data-reveal="" data-reveal-delay="1">
         <div class="cap-card-img">
           <img src="images/cap-black.jpg" alt="PIPA KHAKI — бейсболка хаки тёмная сетка, уличный бренд Казань" loading="lazy">
+          <div class="soldout-overlay">
+            <span>SOLD OUT</span>
+          </div>
         </div>
         <div class="cap-card-body">
           <div class="cap-card-top">
             <h3>PIPA KHAKI</h3>
-            <span class="cap-price">3 999 ₽</span>
+            <span class="cap-price-sold">3 999 ₽</span>
           </div>
           <p>Хаки + тёмная сетка. Тональная нашивка с логотипом. Минималистичный брутальный образ для улицы.</p>
-          <button class="cap-buy-btn" onclick="showOrder('PIPA KHAKI — 3 999 ₽')">
-            КУПИТЬ <i class="fas fa-arrow-right"></i>
+          <button class="cap-buy-btn cap-notify-btn" onclick="showNotify('PIPA KHAKI')">
+            <i class="fas fa-bell"></i> Уведомить о поступлении
           </button>
         </div>
       </div>
 
-      <div class="cap-card" data-reveal="" data-reveal-delay="2">
+      <div class="cap-card cap-card-sold" data-reveal="" data-reveal-delay="2">
         <div class="cap-card-img">
           <img src="images/cap-blue.jpg" alt="PIPA BLUE — бейсболка голубая сетка козырёк, лимитированная серия" loading="lazy">
+          <div class="soldout-overlay">
+            <span>SOLD OUT</span>
+          </div>
         </div>
         <div class="cap-card-body">
           <div class="cap-card-top">
             <h3>PIPA BLUE</h3>
-            <span class="cap-price">3 999 ₽</span>
+            <span class="cap-price-sold">3 999 ₽</span>
           </div>
           <p>Белый передок, голубая сетка и козырёк. Объёмный логотип P с фирменной точкой. Кнопка-корона.</p>
-          <button class="cap-buy-btn" onclick="showOrder('PIPA BLUE — 3 999 ₽')">
-            КУПИТЬ <i class="fas fa-arrow-right"></i>
+          <button class="cap-buy-btn cap-notify-btn" onclick="showNotify('PIPA BLUE')">
+            <i class="fas fa-bell"></i> Уведомить о поступлении
           </button>
         </div>
       </div>
