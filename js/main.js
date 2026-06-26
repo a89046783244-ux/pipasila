@@ -64,7 +64,7 @@ function submitNotify(e) {
 
   postAPI({ email: input.value, type: 'notify', product: title.textContent.replace('Уведомить: ','') }).then(ok => {
     closeModal('notifyModal');
-    showToast(ok ? 'Готово! Скоро свяжемся с вами в Telegram или WhatsApp' : 'Ошибка, попробуй позже');
+    showToast(ok ? 'Готово! Скоро свяжемся с вами в Telegram или MAX' : 'Ошибка, попробуй позже');
     input.disabled = false;
     input.value = '';
     btn.textContent = 'Подписаться';
@@ -119,7 +119,7 @@ function submitEmail(e) {
 
   postAPI({ name: inputs[0].value, phone: inputs[1].value, type: 'subscribe' }).then(ok => {
     closeModal('orderModal');
-    showToast('Готово! Скоро свяжемся с вами в Telegram или WhatsApp');
+    showToast('Готово! Скоро свяжемся с вами в Telegram или MAX');
     inputs.forEach(i => { i.disabled = false; i.value = ''; });
     btn.textContent = 'Оставить заявку';
   });
