@@ -797,7 +797,7 @@
       <div class="modal-divider">или оставь email — мы свяжемся</div>
       <form class="modal-form" onsubmit="submitEmail(event)">
         <input type="text" placeholder="Ваше имя" required>
-        <input type="tel" placeholder="Номер телефона" required>
+        <input type="tel" placeholder="+7 (999) 123-45-67" pattern="\+7\d{10}" title="+7 и 10 цифр после" required>
         <button type="submit" class="btn-main">Оставить заявку</button>
       </form>
     </div>
