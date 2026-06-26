@@ -1943,7 +1943,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   .hero-center {
     grid-template-columns: 1fr;
     gap: 48px;
-    padding: 48px 24px 60px;
+    padding: 48px 20px 60px;
   }
   .hero-left { padding-right: 0; text-align: center; }
   .hero-desc { margin: 0 auto 36px; }
@@ -1967,7 +1967,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 @media (max-width: 768px) {
   .nav-links, .nav-cta { display: none; }
   .burger { display: flex; margin-left: 0; }
-  .nav-inner { gap: 16px; }
+  .nav-inner { gap: 16px; padding: 0 20px; }
 
   .nav-links {
     position: fixed;
@@ -1986,7 +1986,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   .collection-alt .collection-header,
   .collection-alt .beanie-section { padding-left: 20px; padding-right: 20px; }
 
-  .split-left { padding: 48px 28px; }
+  .split-left { padding: 48px 20px; }
   .promo-banner { padding: 60px 20px; }
   .reviews { padding: 70px 20px; }
   .footer-top { padding: 0 20px 48px; grid-template-columns: 1fr 1fr; }
