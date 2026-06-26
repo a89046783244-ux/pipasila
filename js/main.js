@@ -117,11 +117,11 @@ function submitEmail(e) {
   inputs.forEach(i => i.disabled = true);
   btn.textContent = 'Отправляем…';
 
-  postAPI({ name: inputs[0].value, email: inputs[1].value, type: 'subscribe' }).then(ok => {
+  postAPI({ name: inputs[0].value, email: inputs[1].value, phone: inputs[2].value, type: 'subscribe' }).then(ok => {
     closeModal('orderModal');
-    showToast(ok ? 'Готово! Мы пришлём уведомление + промокод' : 'Ошибка, попробуй позже');
+    showToast('Готово! Скоро свяжемся с вами в Telegram');
     inputs.forEach(i => { i.disabled = false; i.value = ''; });
-    btn.textContent = 'Уведомить меня';
+    btn.textContent = 'Оставить заявку';
   });
 }
 
