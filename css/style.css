@@ -1949,8 +1949,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   .hero-stats { justify-content: center; }
   .hero-right { order: -1; }
 
-  .hero-badge-1 { left: 4px; }
-  .hero-badge-2 { right: 4px; }
+  .hero-badge-1 { left: 4px; top: 16px; z-index: 3; }
+  .hero-badge-2 { right: 4px; bottom: 20px; z-index: 3; }
 
   .caps-grid { grid-template-columns: 1fr; gap: 2px; max-width: 480px; margin: 0 auto 48px; }
   .reviews-grid { grid-template-columns: 1fr; max-width: 520px; margin: 0 auto; }
