@@ -47,19 +47,28 @@ function showNotify(item) {
   document.body.style.overflow = 'hidden';
 }
 
+async function postAPI(data) {
+  try {
+    const r = await fetch('/api/submit.php', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(data) });
+    return r.ok;
+  } catch { return false; }
+}
+
 function submitNotify(e) {
   e.preventDefault();
   const input = e.target.querySelector('input');
   const btn   = e.target.querySelector('button[type="submit"]');
+  const title = document.getElementById('notifyTitle');
   input.disabled = true;
   btn.textContent = 'Записываю…';
-  setTimeout(() => {
+
+  postAPI({ email: input.value, type: 'notify', product: title.textContent.replace('Уведомить: ','') }).then(ok => {
     closeModal('notifyModal');
-    showToast('Записали! Сообщим о поступлении');
+    showToast(ok ? 'Записали! Сообщим о поступлении' : 'Ошибка, попробуй позже');
     input.disabled = false;
     input.value = '';
     btn.textContent = 'Подписаться';
-  }, 900);
+  });
 }
 
 function showPrivacy() {
@@ -108,12 +117,12 @@ function submitEmail(e) {
   inputs.forEach(i => i.disabled = true);
   btn.textContent = 'Отправляем…';
 
-  setTimeout(() => {
+  postAPI({ name: inputs[0].value, email: inputs[1].value, type: 'subscribe' }).then(ok => {
     closeModal('orderModal');
-    showToast('Готово! Мы пришлём уведомление + промокод');
+    showToast(ok ? 'Готово! Мы пришлём уведомление + промокод' : 'Ошибка, попробуй позже');
     inputs.forEach(i => { i.disabled = false; i.value = ''; });
     btn.textContent = 'Уведомить меня';
-  }, 1000);
+  });
 }
 
 
