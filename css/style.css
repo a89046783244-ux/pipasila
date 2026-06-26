@@ -542,6 +542,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   padding: 100px 32px;
   max-width: 1400px;
   margin: 0 auto;
+  overflow: hidden;
 }
 .collection-alt {
   background: var(--off-white);
@@ -734,6 +735,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   display: grid;
   grid-template-columns: 1fr 1fr;
   min-height: 520px;
+  overflow: hidden;
 }
 .split-left {
   background: var(--black);
@@ -993,6 +995,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .reviews {
   background: var(--off-white);
   padding: 100px 32px;
+  overflow: hidden;
 }
 .reviews-inner {
   max-width: 1400px;
@@ -1518,8 +1521,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
    LIMITED SECTION
 ══════════════════════════════════════ */
 .limited-section {
-  background: var(--black);
   padding: 100px 32px;
+  background: var(--black-3);
   position: relative;
   overflow: hidden;
 }
@@ -1665,8 +1668,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
    STORY SECTION
 ══════════════════════════════════════ */
 .story-section {
-  background: var(--off-white);
   padding: 100px 32px;
+  background: var(--black-2);
   position: relative;
   overflow: hidden;
 }
