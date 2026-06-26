@@ -3,7 +3,14 @@ date_default_timezone_set('Europe/Moscow');
 session_start();
 
 $dbPath = __DIR__ . '/../data/pipasila.db';
-$password = 'pipasila2026';
+
+$configFile = '/etc/pipasila/admin-config.php';
+if (file_exists($configFile)) {
+    $config = require $configFile;
+    $password = $config['password'] ?? 'admin123';
+} else {
+    $password = 'admin123';
+}
 
 function isAuth() {
     return !empty($_SESSION['admin_logged_in']);
