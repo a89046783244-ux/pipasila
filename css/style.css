@@ -1964,8 +1964,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 @media (max-width: 768px) {
   .nav-links, .nav-cta { display: none; }
-  .burger { display: flex; order: -1; margin-left: 0; }
-  .nav-logo { order: 0; margin-right: auto; }
+  .burger { display: flex; }
+  .nav-logo { margin-left: auto; }
 
   .nav-links {
     position: fixed;
