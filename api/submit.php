@@ -29,9 +29,15 @@ try {
     $phone  = trim($input['phone'] ?? '');
     $product = trim($input['product'] ?? '');
 
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    if ($type === 'notify') {
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            http_response_code(400);
+            echo json_encode(['ok' => false, 'error' => 'Некорректный email']);
+            exit;
+        }
+    } elseif (empty($phone)) {
         http_response_code(400);
-        echo json_encode(['ok' => false, 'error' => 'Некорректный email']);
+        echo json_encode(['ok' => false, 'error' => 'Введите номер телефона']);
         exit;
     }
 
