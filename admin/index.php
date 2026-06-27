@@ -179,6 +179,7 @@ tr:hover td { background:#111; }
 </div>
 <?php exit; endif;
 
+$pwMsg = '';
 $page = max(1, intval($_GET['page'] ?? 1));
 try {
     $db = new PDO("sqlite:$dbPath");
@@ -195,9 +196,11 @@ try {
 <h1>PIPA Админка</h1>
 <nav>
 <a href="?export=1">CSV</a>
+<a href="#" onclick="showPwModal();return false">Сменить пароль</a>
 <a href="?logout=1">Выйти</a>
 </nav>
 </div>
+<?php if ($pwMsg): ?><div style="text-align:center;margin-bottom:16px;font-size:14px;"><?=$pwMsg?></div><?php endif; ?>
 
 <div class="stats">
 <div class="stat-card"><div class="num"><?=$total?></div><div class="label">Всего</div></div>
@@ -222,7 +225,6 @@ $ydOk = file_exists($ydConf) && !empty(parse_ini_file($ydConf)['TOKEN'] ?? '');
 </div>
 
 <?php
-$pwMsg = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['new_pass'])) {
     $new_pass = trim($_POST['new_pass']);
     $confirm = trim($_POST['confirm_pass'] ?? '');
@@ -240,12 +242,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['new_pass'])) {
     }
 }
 ?>
-
-<div class="backup-bar" style="margin-top:8px;justify-content:space-between;">
-<span style="font-size:13px;color:#888;">Пароль администратора</span>
-<button onclick="showPwModal()" class="btn" style="padding:6px 14px;background:#555;border:0;border-radius:6px;color:#fff;cursor:pointer;font-size:13px;">Сменить пароль</button>
-<?php if ($pwMsg): ?><span style="font-size:13px;"><?=$pwMsg?></span><?php endif; ?>
-</div>
 
 <div id="pwModal" class="modal">
 <div class="modal-content">
