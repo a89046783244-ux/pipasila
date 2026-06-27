@@ -194,6 +194,30 @@ $ydOk = file_exists($ydConf) && !empty(parse_ini_file($ydConf)['TOKEN'] ?? '');
 <?php endif; ?>
 </div>
 
+<?php
+$pwMsg = '';
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['new_pass'])) {
+    $new = trim($_POST['new_pass']);
+    if (strlen($new) < 6) {
+        $pwMsg = '<span style="color:#E53935;">Минимум 6 символов</span>';
+    } else {
+        file_put_contents($configFile, '<?php return ' . var_export(['password' => $new], true) . ';' . "\n");
+        $password = $new;
+        $pwMsg = '<span style="color:#4CAF50;">Пароль изменён!</span>';
+    }
+}
+?>
+
+<div class="backup-bar" style="margin-top:8px;">
+<form method="post" style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;width:100%;">
+    <span style="font-size:13px;color:#888;">Новый пароль:</span>
+    <input type="text" name="new_pass" placeholder="минимум 6 символов" required minlength="6"
+           style="flex:1;min-width:140px;padding:6px 10px;background:#222;border:1px solid #333;border-radius:6px;color:#fff;font-size:14px;">
+    <button type="submit" class="btn" style="padding:6px 14px;">Сменить</button>
+    <?php if ($pwMsg): ?><span style="font-size:13px;"><?=$pwMsg?></span><?php endif; ?>
+</form>
+</div>
+
 <?php if (empty($rows)): ?>
 <p style="color:#666;text-align:center;padding:40px 0;">Пока нет записей</p>
 <?php else: ?>
