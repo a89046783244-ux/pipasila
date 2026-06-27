@@ -1,6 +1,9 @@
 <?php
 date_default_timezone_set('Europe/Moscow');
 session_start();
+header('Cache-Control: no-cache, no-store, must-revalidate');
+header('Pragma: no-cache');
+header('Expires: 0');
 
 $dbPath = __DIR__ . '/../data/pipasila.db';
 
@@ -91,7 +94,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && isAuth()
 
 function getStats($db) {
     $total = $db->query("SELECT COUNT(*) FROM submissions")->fetchColumn();
-    $today = $db->query("SELECT COUNT(*) FROM submissions WHERE date(created_at) = date('now')")->fetchColumn();
+    $todayMsk = date('Y-m-d');
+    $stmt = $db->prepare("SELECT COUNT(*) FROM submissions WHERE date(created_at) = ?");
+    $stmt->execute([$todayMsk]);
+    $today = $stmt->fetchColumn();
     $subs = $db->query("SELECT COUNT(*) FROM submissions WHERE type = 'subscribe'")->fetchColumn();
     $notif = $db->query("SELECT COUNT(*) FROM submissions WHERE type = 'notify'")->fetchColumn();
     return [$total, $today, $subs, $notif];
