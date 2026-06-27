@@ -36,6 +36,7 @@ document.addEventListener('click', (e) => {
 function showOrder(item) {
   const title = document.getElementById('modalTitle');
   title.textContent = item ? `Заказать: ${item}` : 'Оформить заказ';
+  document.getElementById('orderProduct').value = item || '';
   document.getElementById('orderModal').classList.add('active');
   document.body.style.overflow = 'hidden';
 }
@@ -117,10 +118,11 @@ function submitEmail(e) {
   inputs.forEach(i => i.disabled = true);
   btn.textContent = 'Отправляем…';
 
-  postAPI({ name: inputs[0].value, phone: inputs[1].value, type: 'subscribe' }).then(ok => {
+  postAPI({ name: inputs[0].value, phone: inputs[1].value, product: document.getElementById('orderProduct').value, type: 'subscribe' }).then(ok => {
     closeModal('orderModal');
     showToast('Готово! Скоро свяжемся с вами в Telegram или MAX');
     inputs.forEach(i => { i.disabled = false; i.value = ''; });
+    document.getElementById('orderProduct').value = '';
     btn.textContent = 'Оставить заявку';
   });
 }

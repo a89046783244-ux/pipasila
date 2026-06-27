@@ -49,7 +49,7 @@ try {
     if (file_exists($tgCfg)) {
         $tg = require $tgCfg;
         if ($type === 'subscribe') {
-            $msg = "📦 <b>Новая заявка</b>\nИмя: $name\nТелефон: $phone";
+            $msg = "📦 <b>Новая заявка</b>\nИмя: $name\nТелефон: $phone" . ($product ? "\nТовар: $product" : '');
         } else {
             $msg = "🔔 <b>Уведомление</b>\nEmail: $email\nТовар: $product";
         }
