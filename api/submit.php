@@ -18,6 +18,7 @@ try {
         phone TEXT DEFAULT '',
         type TEXT NOT NULL,
         product TEXT DEFAULT '',
+        comment TEXT DEFAULT '',
         created_at DATETIME DEFAULT CURRENT_TIMESTAMP
     )");
 

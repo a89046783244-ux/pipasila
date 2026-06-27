@@ -40,12 +40,12 @@ if (isset($_GET['export']) && isAuth()) {
     try {
         $db = new PDO("sqlite:$dbPath");
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $stmt = $db->query("SELECT id, email, name, phone, type, product, created_at FROM submissions ORDER BY id DESC");
+        $stmt = $db->query("SELECT id, email, name, phone, type, product, comment, created_at FROM submissions ORDER BY id DESC");
         header('Content-Type: text/csv; charset=utf-8');
         header('Content-Disposition: attachment; filename="pipasila-submissions.csv"');
         $out = fopen('php://output', 'w');
         fprintf($out, chr(0xEF) . chr(0xBB) . chr(0xBF));
-        fputcsv($out, ['ID', 'Email', 'Имя', 'Телефон', 'Тип', 'Товар', 'Дата']);
+        fputcsv($out, ['ID', 'Email', 'Имя', 'Телефон', 'Тип', 'Товар', 'Комментарий', 'Дата']);
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             fputcsv($out, $row);
         }
@@ -68,6 +68,25 @@ if (isset($_GET['backup']) && $_GET['backup'] === 'dl' && isAuth()) {
     header('Content-Disposition: attachment; filename="' . $name . '"');
     readfile($file);
     exit;
+}
+
+// handle comment update
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && isAuth()) {
+    $db = new PDO("sqlite:$dbPath");
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    if ($_POST['action'] === 'update_comment' && isset($_POST['id'])) {
+        $comment = trim($_POST['comment'] ?? '');
+        $stmt = $db->prepare("UPDATE submissions SET comment = ? WHERE id = ?");
+        $stmt->execute([$comment, $_POST['id']]);
+        header('Location: /admin/?page=' . intval($_GET['page'] ?? 1));
+        exit;
+    }
+    if ($_POST['action'] === 'delete' && isset($_POST['id'])) {
+        $stmt = $db->prepare("DELETE FROM submissions WHERE id = ?");
+        $stmt->execute([$_POST['id']]);
+        header('Location: /admin/?page=' . intval($_GET['page'] ?? 1));
+        exit;
+    }
 }
 
 function getStats($db) {
@@ -135,6 +154,8 @@ tr:hover td { background:#111; }
     .stats { grid-template-columns:repeat(2,1fr); }
     th, td { padding:8px; font-size:12px; }
     td:nth-child(5), th:nth-child(5) { display:none; }
+    td:nth-child(7), th:nth-child(7) { display:none; }
+    td:nth-child(8), th:nth-child(8) { display:none; }
 }
 </style>
 </head>
@@ -228,7 +249,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['new_pass'])) {
 <table>
 <thead>
 <tr>
-<th>ID</th><th>Email</th><th>Имя</th><th>Телефон</th><th>Тип</th><th>Товар</th><th>Дата</th>
+<th>ID</th><th>Email</th><th>Имя</th><th>Телефон</th><th>Тип</th><th>Товар</th><th>Комментарий</th><th>Действия</th><th>Дата</th>
 </tr>
 </thead>
 <tbody>
@@ -240,6 +261,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['new_pass'])) {
 <td><?=htmlspecialchars($r['phone'])?></td>
 <td><?=htmlspecialchars($r['type'])?></td>
 <td><?=htmlspecialchars($r['product'])?></td>
+<td>
+<form method="post" style="display:flex;gap:4px;align-items:center;">
+<input type="hidden" name="action" value="update_comment">
+<input type="hidden" name="id" value="<?=htmlspecialchars($r['id'])?>">
+<input type="text" name="comment" value="<?=htmlspecialchars($r['comment'] ?? '')?>" placeholder="Комментарий" style="width:100%;min-width:120px;padding:4px 6px;background:#222;border:1px solid #333;border-radius:4px;color:#fff;font-size:12px;">
+<button type="submit" style="padding:4px 8px;background:#333;border:1px solid #555;border-radius:4px;color:#fff;cursor:pointer;font-size:11px;">Сохранить</button>
+</form>
+</td>
+<td>
+<form method="post" onsubmit="return confirm('Удалить заказ #<?=htmlspecialchars($r['id'])?>?')">
+<input type="hidden" name="action" value="delete">
+<input type="hidden" name="id" value="<?=htmlspecialchars($r['id'])?>">
+<button type="submit" style="padding:4px 8px;background:#c62828;border:none;border-radius:4px;color:#fff;cursor:pointer;font-size:11px;">Удалить</button>
+</form>
+</td>
 <td><?=htmlspecialchars($r['created_at'])?></td>
 </tr>
 <?php endforeach; ?>
