@@ -220,7 +220,24 @@ $backupDir = '/var/backups/pipasila';
 $backupFiles = is_dir($backupDir) ? glob("$backupDir/pipasila-*") : [];
 rsort($backupFiles);
 $ydConf = '/etc/pipasila/yandex-backup.conf';
-$ydOk = file_exists($ydConf) && !empty(parse_ini_file($ydConf)['YD_USER'] ?? '');
+$ydOk = false;
+if (file_exists($ydConf)) {
+    $ydCfg = parse_ini_file($ydConf);
+    if (!empty($ydCfg['YD_USER']) && !empty($ydCfg['YD_PASS'])) {
+        $ch = curl_init('https://webdav.yandex.ru/');
+        curl_setopt_array($ch, [
+            CURLOPT_USERPWD => $ydCfg['YD_USER'] . ':' . $ydCfg['YD_PASS'],
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_TIMEOUT => 5,
+            CURLOPT_CUSTOMREQUEST => 'PROPFIND',
+            CURLOPT_HTTPHEADER => ['Depth: 0'],
+        ]);
+        curl_exec($ch);
+        $code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        curl_close($ch);
+        $ydOk = $code === 207 || $code === 200;
+    }
+}
 ?>
 <div class="backup-bar">
 <span><span class="backup-dot <?=$ydOk?'backup-dot-green':'backup-dot-red'?>"></span>Яндекс.Диск: <?=$ydOk?'работает':'не подключён'?></span>
