@@ -45,6 +45,25 @@ try {
     $stmt = $db->prepare("INSERT INTO submissions (email, name, phone, type, product) VALUES (?, ?, ?, ?, ?)");
     $stmt->execute([$email, $name, $phone, $type, $product]);
 
+    $tgCfg = '/etc/pipasila/telegram-config.php';
+    if (file_exists($tgCfg)) {
+        $tg = require $tgCfg;
+        if ($type === 'subscribe') {
+            $msg = "📦 <b>Новая заявка</b>\nИмя: $name\nТелефон: $phone";
+        } else {
+            $msg = "🔔 <b>Уведомление</b>\nEmail: $email\nТовар: $product";
+        }
+        $ch = curl_init('https://api.telegram.org/bot' . $tg['bot_token'] . '/sendMessage');
+        curl_setopt_array($ch, [
+            CURLOPT_POST => true,
+            CURLOPT_POSTFIELDS => http_build_query(['chat_id' => $tg['chat_id'], 'text' => $msg, 'parse_mode' => 'HTML']),
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_TIMEOUT => 5,
+        ]);
+        curl_exec($ch);
+        curl_close($ch);
+    }
+
     echo json_encode(['ok' => true]);
 } catch (Exception $e) {
     http_response_code(500);
