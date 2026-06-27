@@ -42,8 +42,9 @@ try {
         exit;
     }
 
-    $stmt = $db->prepare("INSERT INTO submissions (email, name, phone, type, product) VALUES (?, ?, ?, ?, ?)");
-    $stmt->execute([$email, $name, $phone, $type, $product]);
+    $created = date('Y-m-d H:i:s');
+    $stmt = $db->prepare("INSERT INTO submissions (email, name, phone, type, product, created_at) VALUES (?, ?, ?, ?, ?, ?)");
+    $stmt->execute([$email, $name, $phone, $type, $product, $created]);
 
     $tgCfg = '/etc/pipasila/telegram-config.php';
     if (file_exists($tgCfg)) {

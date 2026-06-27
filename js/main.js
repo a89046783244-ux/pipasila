@@ -118,7 +118,7 @@ function submitEmail(e) {
   inputs.forEach(i => i.disabled = true);
   btn.textContent = 'Отправляем…';
 
-  postAPI({ name: inputs[0].value, phone: inputs[1].value, product: document.getElementById('orderProduct').value, type: 'subscribe' }).then(ok => {
+  postAPI({ name: inputs[1].value, phone: inputs[2].value, product: document.getElementById('orderProduct').value, type: 'subscribe' }).then(ok => {
     closeModal('orderModal');
     showToast('Готово! Скоро свяжемся с вами в Telegram или MAX');
     inputs.forEach(i => { i.disabled = false; i.value = ''; });
