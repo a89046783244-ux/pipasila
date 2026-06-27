@@ -149,6 +149,12 @@ tr:hover td { background:#111; }
 .pagination a { padding:6px 12px; background:#1a1a1a; border-radius:6px; }
 .pagination .active { background:#E53935; color:#fff; }
 
+/* modal */
+.modal { display:none; position:fixed; z-index:999; left:0; top:0; width:100%; height:100%; background:rgba(0,0,0,.7); align-items:center; justify-content:center; }
+.modal-content { background:#1a1a1a; padding:32px; border-radius:12px; width:400px; max-width:90vw; position:relative; }
+.modal-close { position:absolute; right:20px; top:16px; font-size:24px; cursor:pointer; color:#888; }
+.modal-close:hover { color:#fff; }
+
 @media (max-width:600px) {
     .admin-wrap { padding:16px; }
     .stats { grid-template-columns:repeat(2,1fr); }
@@ -218,30 +224,95 @@ $ydOk = file_exists($ydConf) && !empty(parse_ini_file($ydConf)['TOKEN'] ?? '');
 <?php
 $pwMsg = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['new_pass'])) {
-    $new = trim($_POST['new_pass']);
+    $new_pass = trim($_POST['new_pass']);
+    $confirm = trim($_POST['confirm_pass'] ?? '');
     if (!empty($_POST['gen'])) {
-        $new = bin2hex(random_bytes(4));
-    }
-    if (strlen($new) < 6) {
+        $new_pass = bin2hex(random_bytes(4));
+        $pwMsg = '<span style="color:#4CAF50;">Сгенерирован: <b>' . htmlspecialchars($new_pass) . '</b></span>';
+    } elseif ($new_pass !== $confirm) {
+        $pwMsg = '<span style="color:#E53935;">Пароли не совпадают</span>';
+    } elseif (strlen($new_pass) < 6) {
         $pwMsg = '<span style="color:#E53935;">Минимум 6 символов</span>';
     } else {
-        file_put_contents($configFile, '<?php return ' . var_export(['password' => $new], true) . ';' . "\n");
-        $password = $new;
-        $pwMsg = '<span style="color:#4CAF50;">Пароль: <b>' . htmlspecialchars($new) . '</b> — запиши его!</span>';
+        file_put_contents($configFile, '<?php return ' . var_export(['password' => $new_pass], true) . ';' . "\n");
+        $password = $new_pass;
+        $pwMsg = '<span style="color:#4CAF50;">Пароль сохранён: <b>' . htmlspecialchars($new_pass) . '</b></span>';
     }
 }
 ?>
 
-<div class="backup-bar" style="margin-top:8px;">
-<form method="post" style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;width:100%;">
-    <span style="font-size:13px;color:#888;">Новый пароль:</span>
-    <input type="text" name="new_pass" id="pwInput" placeholder="минимум 6 символов" minlength="6"
-           style="flex:1;min-width:140px;padding:6px 10px;background:#222;border:1px solid #333;border-radius:6px;color:#fff;font-size:14px;">
-    <button type="submit" class="btn" style="padding:6px 14px;">Сменить</button>
-    <button type="submit" name="gen" value="1" class="btn" style="padding:6px 14px;background:#555;border:0;border-radius:6px;color:#fff;cursor:pointer;font-size:13px;">Сгенерировать</button>
-    <?php if ($pwMsg): ?><span style="font-size:13px;"><?=$pwMsg?></span><?php endif; ?>
+<div class="backup-bar" style="margin-top:8px;justify-content:space-between;">
+<span style="font-size:13px;color:#888;">Пароль администратора</span>
+<button onclick="showPwModal()" class="btn" style="padding:6px 14px;background:#555;border:0;border-radius:6px;color:#fff;cursor:pointer;font-size:13px;">Сменить пароль</button>
+<?php if ($pwMsg): ?><span style="font-size:13px;"><?=$pwMsg?></span><?php endif; ?>
+</div>
+
+<div id="pwModal" class="modal">
+<div class="modal-content">
+<span class="modal-close" onclick="hidePwModal()">&times;</span>
+<h2 style="margin-bottom:20px;font-size:18px;">Смена пароля</h2>
+<form method="post" onsubmit="return validatePw()">
+<div style="margin-bottom:12px;">
+<label style="display:block;font-size:13px;color:#888;margin-bottom:4px;">Новый пароль</label>
+<input type="password" name="new_pass" id="pwNew" placeholder="минимум 6 символов" minlength="6" required
+       style="width:100%;padding:10px 12px;background:#222;border:1px solid #333;border-radius:6px;color:#fff;font-size:14px;outline:none;"
+       onfocus="this.style.borderColor='#E53935'" onblur="this.style.borderColor='#333'">
+</div>
+<div style="margin-bottom:20px;">
+<label style="display:block;font-size:13px;color:#888;margin-bottom:4px;">Подтвердить пароль</label>
+<input type="password" name="confirm_pass" id="pwConfirm" placeholder="повторите пароль" required
+       style="width:100%;padding:10px 12px;background:#222;border:1px solid #333;border-radius:6px;color:#fff;font-size:14px;outline:none;"
+       onfocus="this.style.borderColor='#E53935'" onblur="this.style.borderColor='#333'">
+</div>
+<div id="pwError" style="color:#E53935;font-size:13px;margin-bottom:12px;display:none;"></div>
+<div style="display:flex;gap:10px;">
+<button type="submit" class="btn" style="padding:10px 20px;font-size:14px;flex:1;">Сохранить</button>
+<button type="button" onclick="genPw()" class="btn" style="padding:10px 20px;font-size:14px;flex:1;background:#555;">Сгенерировать</button>
+</div>
 </form>
 </div>
+</div>
+
+<script>
+function showPwModal() {
+    document.getElementById('pwModal').style.display = 'flex';
+    document.getElementById('pwNew').value = '';
+    document.getElementById('pwConfirm').value = '';
+    document.getElementById('pwError').style.display = 'none';
+}
+function hidePwModal() {
+    document.getElementById('pwModal').style.display = 'none';
+}
+function genPw() {
+    var chars = 'abcdefghijklmnopqrstuvwxyz0123456789';
+    var pw = '';
+    for (var i = 0; i < 8; i++) {
+        pw += chars[Math.floor(Math.random() * chars.length)];
+    }
+    document.getElementById('pwNew').value = pw;
+    document.getElementById('pwConfirm').value = pw;
+    document.getElementById('pwError').style.display = 'none';
+}
+function validatePw() {
+    var a = document.getElementById('pwNew').value;
+    var b = document.getElementById('pwConfirm').value;
+    var err = document.getElementById('pwError');
+    if (a !== b) {
+        err.textContent = 'Пароли не совпадают';
+        err.style.display = 'block';
+        return false;
+    }
+    if (a.length < 6) {
+        err.textContent = 'Минимум 6 символов';
+        err.style.display = 'block';
+        return false;
+    }
+    return true;
+}
+document.getElementById('pwModal').addEventListener('click', function(e) {
+    if (e.target === this) hidePwModal();
+});
+</script>
 
 <?php if (empty($rows)): ?>
 <p style="color:#666;text-align:center;padding:40px 0;">Пока нет записей</p>
