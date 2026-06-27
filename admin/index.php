@@ -220,7 +220,7 @@ $backupDir = '/var/backups/pipasila';
 $backupFiles = is_dir($backupDir) ? glob("$backupDir/pipasila-*") : [];
 rsort($backupFiles);
 $ydConf = '/etc/pipasila/yandex-backup.conf';
-$ydOk = file_exists($ydConf) && !empty(parse_ini_file($ydConf)['TOKEN'] ?? '');
+$ydOk = file_exists($ydConf) && !empty(parse_ini_file($ydConf)['YD_USER'] ?? '');
 ?>
 <div class="backup-bar">
 <span><span class="backup-dot <?=$ydOk?'backup-dot-green':'backup-dot-red'?>"></span>Яндекс.Диск: <?=$ydOk?'работает':'не подключён'?></span>
