@@ -183,7 +183,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .archive__list img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; filter: grayscale(1) contrast(1.05); opacity: .8; }
 .archive__list span {
   position: absolute; left: 0; bottom: 0; background: var(--ink); color: var(--plaster);
-  font: 600 13px/1 var(--text); padding: 7px 9px;
+  font: 600 14px/1 var(--text); padding: 7px 10px;
 }
 
 /* ── packaging ── */
