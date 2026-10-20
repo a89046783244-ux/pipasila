@@ -25,8 +25,9 @@
   - `robots.txt`
   - `sitemap.xml`
   - мета-теги и корректная структура страниц
-- Хостинг: **nginx** на **Timeweb**
-- Домен и CDN/DNS: **Cloudflare**
+- Хостинг: **GitHub Pages** (бесплатно)
+- Домен: pipasila.ru (DNS-записи у регистратора / в Cloudflare в режиме «DNS only»)
+- Сайт **не собирает персональные данные**: нет форм, бэкенда, cookies и аналитики. Все покупки — на Ozon и во ВКонтакте.
 
 ---
 
@@ -79,70 +80,17 @@ npx serve .
 
 ---
 
-## 📦 Деплой (Timeweb + nginx + Cloudflare)
+## 📦 Деплой (GitHub Pages)
 
-Ниже — практичный сценарий деплоя для статического сайта.
+1. Settings → Pages → Source: **Deploy from a branch**, ветка `main`, папка `/ (root)`.
+2. Custom domain: `pipasila.ru` (файл `CNAME` уже лежит в репозитории), затем включить **Enforce HTTPS**.
+3. DNS для `pipasila.ru`:
+   - 4 записи `A` для `@`: `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
+   - `CNAME` для `www` → `<github-логин>.github.io`
+   - В Cloudflare у этих записей должно быть серое облако («DNS only»).
+4. Любой коммит в `main` публикуется автоматически за 1–2 минуты.
 
-### 1) Подготовка на сервере
-
-Обычно сайт размещается в директории вроде:
-- `/var/www/pipasila.ru/`
-
-Проверьте права и владельца директории (в зависимости от вашей схемы деплоя).
-
-### 2) Обновление сайта
-
-Самый простой подход:
-- скопировать обновлённые файлы на сервер (rsync/scp/CI);
-- перезагрузить nginx при необходимости (обычно не требуется для статических файлов).
-
-Пример через `rsync` (локально → сервер):
-```bash
-rsync -av --delete ./ root@YOUR_SERVER:/var/www/pipasila.ru/
-```
-
-> ⚠️ Внимание: `--delete` удалит файлы на сервере, которых нет локально.
-
-### 3) Конфиг nginx (пример)
-
-Пример минимального server block для статического сайта:
-
-```nginx
-server {
-    listen 80;
-    server_name pipasila.ru www.pipasila.ru;
-
-    root /var/www/pipasila.ru;
-    index index.html;
-
-    location / {
-        try_files $uri $uri/ /index.html;
-    }
-
-    # Кеширование статических ассетов
-    location ~* \.(css|js|png|jpg|jpeg|gif|svg|webp|ico|woff2?)$ {
-        expires 30d;
-        add_header Cache-Control "public, max-age=2592000";
-    }
-}
-```
-
-Если сайт **не SPA**, строку `try_files ... /index.html` можно упростить до `try_files $uri $uri/ =404;`.
-
-### 4) HTTPS + Cloudflare
-
-Типовая схема:
-- в Cloudflare включить проксирование (orange cloud) и настроить SSL/TLS режим **Full** или **Full (strict)**;
-- на сервере поднять сертификат (например, Let’s Encrypt) или использовать Cloudflare Origin Certificate;
-- включить редирект HTTP → HTTPS.
-
-### 5) SEO-файлы
-
-Проверьте, что доступны:
-- `https://pipasila.ru/robots.txt`
-- `https://pipasila.ru/sitemap.xml`
-
-И что ссылки/путь к sitemap прописаны корректно (часто прямо в `robots.txt`).
+Фото текущего дропа лежат в `images/pipa-gym-drop.jpg`, `pipa-mafia-drop.jpg`, `pipa-7-drop.jpg` — чтобы заменить, загрузите файлы с теми же именами.
 
 ---
 

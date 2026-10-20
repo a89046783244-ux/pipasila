@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════
-   PIPA — main.js  v2.0
+   PIPA — main.js  v3.0 (без сбора данных)
 ═══════════════════════════════════════ */
 
 /* ── Navbar scroll ── */
@@ -33,45 +33,6 @@ document.addEventListener('click', (e) => {
 
 
 /* ── Modals ── */
-function showOrder(item) {
-  const title = document.getElementById('modalTitle');
-  title.textContent = item ? `Заказать: ${item}` : 'Оформить заказ';
-  document.getElementById('orderProduct').value = item || '';
-  document.getElementById('orderModal').classList.add('active');
-  document.body.style.overflow = 'hidden';
-}
-
-function showNotify(item) {
-  const title = document.getElementById('notifyTitle');
-  title.textContent = `Уведомить: ${item}`;
-  document.getElementById('notifyModal').classList.add('active');
-  document.body.style.overflow = 'hidden';
-}
-
-async function postAPI(data) {
-  try {
-    const r = await fetch('/api/submit.php', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(data) });
-    return r.ok;
-  } catch { return false; }
-}
-
-function submitNotify(e) {
-  e.preventDefault();
-  const input = e.target.querySelector('input');
-  const btn   = e.target.querySelector('button[type="submit"]');
-  const title = document.getElementById('notifyTitle');
-  input.disabled = true;
-  btn.textContent = 'Записываю…';
-
-  postAPI({ email: input.value, type: 'notify', product: title.textContent.replace('Уведомить: ','') }).then(ok => {
-    closeModal('notifyModal');
-    showToast(ok ? 'Готово! Скоро свяжемся с вами в Telegram или MAX' : 'Ошибка, попробуй позже');
-    input.disabled = false;
-    input.value = '';
-    btn.textContent = 'Подписаться';
-  });
-}
-
 function showPrivacy() {
   document.getElementById('privacyModal').classList.add('active');
   document.body.style.overflow = 'hidden';
@@ -107,24 +68,6 @@ function showToast(msg, duration = 3200) {
   document.getElementById('toastMsg').textContent = msg;
   toast.classList.add('show');
   setTimeout(() => toast.classList.remove('show'), duration);
-}
-
-
-/* ── Email submit ── */
-function submitEmail(e) {
-  e.preventDefault();
-  const inputs = e.target.querySelectorAll('input');
-  const btn    = e.target.querySelector('button[type="submit"]');
-  inputs.forEach(i => i.disabled = true);
-  btn.textContent = 'Отправляем…';
-
-  postAPI({ name: inputs[1].value, phone: inputs[2].value, product: document.getElementById('orderProduct').value, type: 'subscribe' }).then(ok => {
-    closeModal('orderModal');
-    showToast('Готово! Скоро свяжемся с вами в Telegram или MAX');
-    inputs.forEach(i => { i.disabled = false; i.value = ''; });
-    document.getElementById('orderProduct').value = '';
-    btn.textContent = 'Оставить заявку';
-  });
 }
 
 

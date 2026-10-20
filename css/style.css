@@ -2034,3 +2034,16 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   .tg-cta { padding: 48px 20px; }
   .soldout-block { margin-top: 32px; }
 }
+
+/* ── fix: блок преимуществ на телефоне не вылезает за экран ── */
+.vprop { min-width: 0; }
+@media (max-width: 600px) {
+  .vprops-grid { grid-template-columns: 1fr; }
+  .vprop { padding: 32px 20px; border-bottom: 1px solid rgba(255,255,255,.07) !important; }
+  .vprop:last-child { border-bottom: none !important; }
+}
+
+/* ── новый дроп: 4 модели в ряд ── */
+.caps-grid--4 { grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 1100px) { .caps-grid--4 { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 900px)  { .caps-grid--4 { grid-template-columns: 1fr; } }
