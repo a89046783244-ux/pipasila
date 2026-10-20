@@ -339,3 +339,27 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   * { transition: none !important; }
 }
 @media (max-width: 900px) { .bw__detail { display: none; } }
+
+/* ── бегущие ленты ── */
+.run-clip { height: 0; position: relative; z-index: 3; overflow-x: clip; overflow-y: visible; pointer-events: none; }
+.run {
+  background: var(--crown); color: #fff;
+  overflow: hidden; position: relative; z-index: 2;
+  padding: 14px 0;
+}
+.run__track { display: flex; width: max-content; animation: run 38s linear infinite; }
+.run__set { display: flex; align-items: center; flex-shrink: 0; }
+.run__set span {
+  font: 400 clamp(18px, 2vw, 26px)/1 var(--display);
+  text-transform: uppercase; white-space: nowrap; padding: 0 22px;
+}
+.run__crown { width: 22px; height: 17px; fill: currentColor; flex-shrink: 0; }
+.run--tilt {
+  position: absolute; left: -6vw; top: 0; translate: 0 -50%;
+  width: 112vw;
+  transform: rotate(-2.2deg);
+  border-top: 3px solid var(--ink); border-bottom: 3px solid var(--ink);
+}
+.run--tilt .run__track { animation-direction: reverse; animation-duration: 44s; }
+@keyframes run { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .run__track { animation: none; } }
