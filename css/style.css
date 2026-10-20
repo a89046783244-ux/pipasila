@@ -363,3 +363,31 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .run--tilt .run__track { animation-direction: reverse; animation-duration: 44s; }
 @keyframes run { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 @media (prefers-reduced-motion: reduce) { .run__track { animation: none; } }
+
+/* ── рейтинг на первом экране ── */
+.hero__text { justify-content: center; }
+.hero__rating {
+  display: inline-flex; align-items: center; gap: 12px; align-self: flex-start;
+  text-decoration: none; font-size: 16px; color: var(--plaster);
+  border: 2px solid var(--seam); padding: 10px 14px;
+}
+.hero__rating:hover { border-color: var(--plaster); }
+.stars { color: var(--crown-hi); letter-spacing: 2px; font-size: 18px; line-height: 1; }
+
+/* ── лента с цитатами ── */
+.run--quotes { background: var(--ink); color: var(--plaster); border-top: 1px solid var(--seam); border-bottom: 1px solid var(--seam); }
+.run--quotes .run__crown { color: var(--crown); }
+.run--quotes .run__set span { font-size: clamp(16px, 1.7vw, 22px); }
+.run--quotes .run__track { animation-duration: 60s; }
+
+/* ── отзывы ── */
+.reviews__grid {
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 3px; background: var(--seam); border: 3px solid var(--seam);
+}
+.review { background: var(--slab); padding: 26px 24px; display: flex; flex-direction: column; gap: 16px; }
+.review blockquote { font-size: 17px; line-height: 1.55; flex: 1; }
+.review figcaption { color: var(--dust); font-size: 15px; font-weight: 600; }
+.reviews__more { margin-top: 32px; }
+@media (max-width: 1100px) { .reviews__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .reviews__grid { grid-template-columns: 1fr; } }
