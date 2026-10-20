@@ -1,208 +1,40 @@
-/* ═══════════════════════════════════════
-   PIPA — main.js  v3.0 (без сбора данных)
-═══════════════════════════════════════ */
+/* PIPA — pipasila.ru. Без форм, cookies и аналитики. */
 
-/* ── Navbar scroll ── */
-const navbar = document.getElementById('navbar');
-window.addEventListener('scroll', () => {
-  navbar.classList.toggle('scrolled', window.scrollY > 60);
-}, { passive: true });
-
-/* ── Burger menu ── */
-const burger   = document.getElementById('burger');
-const navLinks = document.getElementById('navLinks');
-
+// Мобильное меню
+const burger = document.getElementById('burger');
+const nav = document.getElementById('nav');
 burger.addEventListener('click', () => {
-  burger.classList.toggle('open');
-  navLinks.classList.toggle('open');
+  const open = burger.getAttribute('aria-expanded') !== 'true';
+  burger.setAttribute('aria-expanded', String(open));
+  burger.setAttribute('aria-label', open ? 'Закрыть меню' : 'Открыть меню');
+  nav.classList.toggle('open', open);
 });
+nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  burger.setAttribute('aria-expanded', 'false');
+  burger.setAttribute('aria-label', 'Открыть меню');
+  nav.classList.remove('open');
+}));
 
-navLinks.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => {
-    burger.classList.remove('open');
-    navLinks.classList.remove('open');
-  });
-});
-
-document.addEventListener('click', (e) => {
-  if (!burger.contains(e.target) && !navLinks.contains(e.target)) {
-    burger.classList.remove('open');
-    navLinks.classList.remove('open');
+// Копирование промокода
+const copyBtn = document.getElementById('copyBtn');
+copyBtn.addEventListener('click', async () => {
+  const code = document.getElementById('promoCode').textContent.trim();
+  const label = copyBtn.querySelector('span');
+  try {
+    await navigator.clipboard.writeText(code);
+  } catch {
+    const t = document.createElement('textarea');
+    t.value = code; t.style.position = 'fixed'; t.style.opacity = '0';
+    document.body.appendChild(t); t.select();
+    try { document.execCommand('copy'); } catch {}
+    t.remove();
   }
+  label.textContent = 'Скопировано';
+  setTimeout(() => { label.textContent = 'Скопировать'; }, 2500);
 });
 
-
-/* ── Modals ── */
-function showPrivacy() {
-  document.getElementById('privacyModal').classList.add('active');
-  document.body.style.overflow = 'hidden';
-}
-
-function closeModal(id) {
-  document.getElementById(id).classList.remove('active');
-  document.body.style.overflow = '';
-}
-
-// Overlay click to close
-document.querySelectorAll('.modal-overlay').forEach(overlay => {
-  overlay.addEventListener('click', (e) => {
-    if (e.target === overlay) {
-      overlay.classList.remove('active');
-      document.body.style.overflow = '';
-    }
-  });
-});
-
-// Escape key
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') {
-    document.querySelectorAll('.modal-overlay.active').forEach(m => m.classList.remove('active'));
-    document.body.style.overflow = '';
-  }
-});
-
-
-/* ── Toast ── */
-function showToast(msg, duration = 3200) {
-  const toast = document.getElementById('toast');
-  document.getElementById('toastMsg').textContent = msg;
-  toast.classList.add('show');
-  setTimeout(() => toast.classList.remove('show'), duration);
-}
-
-
-/* ── Copy promo ── */
-function copyPromo() {
-  const btn = document.getElementById('copyBtn');
-  const code = 'PIPA20';
-
-  const doCopy = () => {
-    btn.innerHTML = '<i class="fas fa-check"></i> Скопировано!';
-    btn.classList.add('copied');
-    showToast('Промокод PIPA20 скопирован!');
-    setTimeout(() => {
-      btn.innerHTML = '<i class="fas fa-copy"></i> Скопировать';
-      btn.classList.remove('copied');
-    }, 2800);
-  };
-
-  if (navigator.clipboard) {
-    navigator.clipboard.writeText(code).then(doCopy).catch(() => fallbackCopy(code, doCopy));
-  } else {
-    fallbackCopy(code, doCopy);
-  }
-}
-
-function fallbackCopy(text, cb) {
-  const el = document.createElement('textarea');
-  el.value = text;
-  el.style.position = 'fixed';
-  el.style.opacity = '0';
-  document.body.appendChild(el);
-  el.select();
-  try { document.execCommand('copy'); cb(); } catch(e) {}
-  document.body.removeChild(el);
-}
-
-
-/* ── Scroll Reveal ── */
-const revealObs = new IntersectionObserver((entries) => {
-  entries.forEach((entry, i) => {
-    if (entry.isIntersecting) {
-      const delay = entry.target.dataset.revealDelay || 0;
-      setTimeout(() => {
-        entry.target.classList.add('revealed');
-      }, delay * 120);
-      revealObs.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.1, rootMargin: '0px 0px -32px 0px' });
-
-function initReveal() {
-  document.querySelectorAll('.caps-grid .cap-card').forEach((el, i) => {
-    el.setAttribute('data-reveal', '');
-    el.dataset.revealDelay = i;
-  });
-  document.querySelectorAll('.reviews-grid .review-card').forEach((el, i) => {
-    el.setAttribute('data-reveal', '');
-    el.dataset.revealDelay = i;
-  });
-  document.querySelectorAll('.vprops-grid .vprop').forEach((el, i) => {
-    el.setAttribute('data-reveal', '');
-    el.dataset.revealDelay = i;
-  });
-
-  document.querySelectorAll('[data-reveal]').forEach(el => revealObs.observe(el));
-}
-
-
-/* ── Smooth scroll offset ── */
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function(e) {
-    const id = this.getAttribute('href');
-    if (id === '#') return;
-    const target = document.querySelector(id);
-    if (!target) return;
-    e.preventDefault();
-    const top = target.getBoundingClientRect().top + window.pageYOffset - 72;
-    window.scrollTo({ top, behavior: 'smooth' });
-  });
-});
-
-
-/* ── Active nav highlight ── */
-function initActiveNav() {
-  const sections = document.querySelectorAll('section[id]');
-  const links    = document.querySelectorAll('.nav-links a[href^="#"]');
-
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        links.forEach(l => l.removeAttribute('style'));
-        const active = [...links].find(l => l.getAttribute('href') === `#${entry.target.id}`);
-        if (active) {
-          active.style.color = '#FFFFFF';
-          active.style.background = 'rgba(232,0,61,.15)';
-        }
-      }
-    });
-  }, { threshold: 0.35 });
-
-  sections.forEach(s => obs.observe(s));
-}
-
-
-/* ── Hero image hover parallax ── */
-function initParallax() {
-  const img = document.querySelector('.hero-cap-img');
-  if (!img) return;
-  const wrap = img.closest('.hero-right');
-  if (!wrap) return;
-
-  wrap.addEventListener('mousemove', (e) => {
-    const rect = wrap.getBoundingClientRect();
-    const x = (e.clientX - rect.left) / rect.width  - 0.5;
-    const y = (e.clientY - rect.top)  / rect.height - 0.5;
-    img.style.transform = `translateX(${x * 12}px) translateY(${y * 8}px) scale(1.02)`;
-  });
-  wrap.addEventListener('mouseleave', () => {
-    img.style.transform = '';
-  });
-}
-
-
-/* ── Ticker duplication ── */
-function initTicker() {
-  const track = document.querySelector('.marquee-track');
-  if (!track) return;
-  track.innerHTML += track.innerHTML;
-}
-
-
-/* ── Init ── */
-document.addEventListener('DOMContentLoaded', () => {
-  initReveal();
-  initActiveNav();
-  initParallax();
-  initTicker();
-});
+// Окно «Конфиденциальность»
+const dlg = document.getElementById('privacy');
+document.getElementById('privacyBtn').addEventListener('click', () => dlg.showModal());
+document.getElementById('privacyClose').addEventListener('click', () => dlg.close());
+dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });

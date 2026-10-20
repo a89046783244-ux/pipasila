@@ -20,7 +20,7 @@
 ## 🧰 Технологии
 
 - **HTML / CSS / JavaScript (vanilla)**
-- Шрифты: **Inter**, **Barlow**, **Bebas Neue**
+- Шрифты: **Dela Gothic One** (заголовки) и **Golos Text** (текст), лежат в `fonts/`, лицензия OFL
 - SEO:
   - `robots.txt`
   - `sitemap.xml`

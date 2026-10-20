@@ -3,840 +3,332 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PIPA — Уличные кепки и шапки из Казани | Лимитированные серии</title>
+  <title>PIPA — кепки и шапки из Казани. Стиль улиц</title>
 
-  <!-- SEO -->
-  <meta name="description" content="PIPA — уличный бренд кепок и шапок из Казани. Лимитированные серии, ограниченный тираж. Бейсболки, зимние и осенние модели. Купить на Ozon или ВКонтакте.">
-  <meta name="keywords" content="PIPA, кепки Казань, уличный бренд, бейсболки купить, шапки лимитированные, streetwear Казань, кепки лимитированная серия">
+  <meta name="description" content="PIPA — уличный бренд кепок и шапок из Казани. Бейсболки GYM, MAFIA, №7, MULTICAM и вязаные шапки ограниченными партиями. Купить на Ozon или через ВКонтакте.">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://pipasila.ru">
+  <link rel="canonical" href="https://pipasila.ru/">
+  <meta name="theme-color" content="#1F2022">
 
-  <!-- GEO -->
   <meta name="geo.region" content="RU-TA">
   <meta name="geo.placename" content="Казань, Республика Татарстан">
-  <meta name="geo.position" content="55.7887;49.1221">
-  <meta name="ICBM" content="55.7887, 49.1221">
 
-  <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://pipasila.ru">
-  <meta property="og:title" content="PIPA — уличные кепки и шапки из Казани">
-  <meta property="og:description" content="Уличный бренд из Казани. Лимитированные серии кепок и шапок. Каждая модель выпускается ограниченным тиражом — когда закончатся, всё.">
-  <meta property="og:image" content="https://pipasila.ru/images/pipa-gym-drop.jpg">
+  <meta property="og:url" content="https://pipasila.ru/">
+  <meta property="og:title" content="PIPA — кепки и шапки из Казани">
+  <meta property="og:description" content="Уличный бренд из Казани. Бейсболки и шапки ограниченными партиями.">
+  <meta property="og:image" content="https://pipasila.ru/images/hero-gym.jpg">
   <meta property="og:locale" content="ru_RU">
   <meta property="og:site_name" content="PIPA">
-
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="PIPA — уличные кепки и шапки из Казани">
-  <meta name="twitter:description" content="Уличный бренд из Казани. Лимитированные серии кепок и шапок.">
-  <meta name="twitter:image" content="https://pipasila.ru/images/pipa-gym-drop.jpg">
   <meta name="yandex-verification" content="fe8108dc5929ded3" />
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "PIPA",
-    "url": "https://pipasila.ru",
-    "logo": "https://pipasila.ru/images/logo.png",
-    "address": { "@type": "PostalAddress", "addressLocality": "Казань", "addressCountry": "RU" }
-  }
-  </script>
-  <style>
-    @font-face { font-family: 'Bebas Neue'; font-style: normal; font-weight: 400; font-display: swap; src: url('fonts/bebas-400.woff2') format('woff2'); }
-    @font-face { font-family: 'Barlow Condensed'; font-style: normal; font-weight: 400; font-display: swap; src: url('fonts/barlow-400.woff2') format('woff2'); }
-    @font-face { font-family: 'Barlow Condensed'; font-style: normal; font-weight: 500; font-display: swap; src: url('fonts/barlow-500.woff2') format('woff2'); }
-    @font-face { font-family: 'Barlow Condensed'; font-style: normal; font-weight: 600; font-display: swap; src: url('fonts/barlow-600.woff2') format('woff2'); }
-    @font-face { font-family: 'Barlow Condensed'; font-style: normal; font-weight: 700; font-display: swap; src: url('fonts/barlow-700.woff2') format('woff2'); }
-    @font-face { font-family: 'Barlow Condensed'; font-style: normal; font-weight: 800; font-display: swap; src: url('fonts/barlow-800.woff2') format('woff2'); }
-    @font-face { font-family: 'Barlow Condensed'; font-style: normal; font-weight: 900; font-display: swap; src: url('fonts/barlow-900.woff2') format('woff2'); }
-    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 100 900; font-display: swap; src: url('fonts/inter-var.woff2') format('woff2'); }
-  </style>
+
+  <link rel="icon" href="images/logo-dark.png">
+  <link rel="preload" href="fonts/dela-gothic-one.woff" as="font" type="font/woff" crossorigin>
+  <link rel="preload" href="fonts/golos-text-var.woff" as="font" type="font/woff" crossorigin>
   <link rel="stylesheet" href="vendor/fontawesome/css/all.min.css">
-  <link rel="stylesheet" href="css/style.css?v=4">
-</head>
-<body>
+  <link rel="stylesheet" href="css/style.css?v=5">
 
-  <!-- ══════════════ NAVBAR ══════════════ -->
-  <nav class="navbar" id="navbar">
-    <div class="nav-inner">
-      <button class="burger" id="burger" aria-label="Меню">
-        <span></span><span></span><span></span>
-      </button>
-      <a href="#hero" class="nav-logo">
-        <img src="images/logo.png" alt="PIPA" class="logo-img">
-      </a>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="#caps">Бейсболки</a></li>
-        <li><a href="#autumn">Осень</a></li>
-        <li><a href="#winter">Зима</a></li>
-        <li><a href="#limited">Лимитка</a></li>
-        <li><a href="#story">О бренде</a></li>
-        <li><a href="#delivery">Где купить</a></li>
-      </ul>
-      <a href="https://www.ozon.ru/seller/pipa-1613537/" target="_blank" rel="noopener" class="nav-cta nav-cta--ozon" style="background:#005bff;margin-right:8px;">
-        <i class="fas fa-shopping-bag"></i> OZON
-      </a>
-      <a href="https://vk.com/pipa_sila" target="_blank" rel="noopener" class="nav-cta">
-        <i class="fab fa-vk"></i> ВКОНТАКТЕ
-      </a>
-    </div>
-  </nav>
-
-  <!-- ══════════════ HERO ══════════════ -->
-  <section class="hero" id="hero">
-    <div class="hero-bg">
-      <div class="hero-noise"></div>
-    </div>
-    <div class="hero-content">
-      <div class="hero-eyebrow">
-        <span class="ticker-line">
-          СТИЛЬ УЛИЦ &nbsp;·&nbsp; ОГРАНИЧЕННАЯ СЕРИЯ &nbsp;·&nbsp; КАЗАНЬ &nbsp;·&nbsp; PIPA &nbsp;·&nbsp; СТИЛЬ УЛИЦ &nbsp;·&nbsp; ОГРАНИЧЕННАЯ СЕРИЯ &nbsp;·&nbsp; КАЗАНЬ &nbsp;·&nbsp; PIPA &nbsp;·&nbsp; СТИЛЬ УЛИЦ &nbsp;·&nbsp; ОГРАНИЧЕННАЯ СЕРИЯ &nbsp;·&nbsp; КАЗАНЬ &nbsp;·&nbsp; PIPA &nbsp;·&nbsp;
-        </span>
-      </div>
-      <div class="hero-center">
-        <div class="hero-left">
-          <h1 class="hero-title">
-            <span class="hero-title-line">НЕ</span>
-            <span class="hero-title-line outline">ПРОСТО</span>
-            <span class="hero-title-line">КЕПКА</span>
-          </h1>
-          <p class="hero-desc">
-            PIPA — уличный бренд из Казани. Каждая модель выпускается ограниченным тиражом. Когда закончатся — всё.
-          </p>
-          <div class="hero-btns">
-            <a href="#caps" class="btn-main">Смотреть коллекцию</a>
-            <a href="https://www.ozon.ru/seller/pipa-1613537/" target="_blank" rel="noopener" class="btn-ghost-w" style="border-color:#005bff;color:#005bff;">
-              <i class="fas fa-shopping-bag"></i> Купить на Ozon
-            </a>
-            <a href="https://vk.com/pipa_sila" target="_blank" rel="noopener" class="btn-ghost-w">
-              <i class="fab fa-vk"></i> ВКонтакте
-            </a>
-          </div>
-          <div class="hero-stats">
-            <div class="hstat">
-              <b>Казань</b>
-              <span>родом из</span>
-            </div>
-            <div class="hstat-sep"></div>
-            <div class="hstat">
-              <b>Ozon</b>
-              <span>доставка по РФ</span>
-            </div>
-            <div class="hstat-sep"></div>
-            <div class="hstat">
-              <b>Лимит</b>
-              <span>каждая модель</span>
-            </div>
-          </div>
-        </div>
-        <div class="hero-right">
-          <div class="hero-img-wrap">
-            <img src="images/pipa-gym-drop.jpg" alt="PIPA GYM — серая бейсболка, новый дроп" class="hero-cap-img">
-            <div class="hero-badge-1">
-              <i class="fas fa-crown"></i> Хит сезона
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="hero-scroll">
-      <span>SCROLL</span>
-      <div class="scroll-line"></div>
-    </div>
-  </section>
-
-  <!-- ══════════════ MARQUEE ══════════════ -->
-  <div class="marquee-strip">
-    <div class="marquee-track">
-      <span>PIPA</span><span class="dot">▼</span>
-      <span>СТИЛЬ УЛИЦ</span><span class="dot">▼</span>
-      <span>КАЗАНЬ</span><span class="dot">▼</span>
-      <span>ОГРАНИЧЕННАЯ СЕРИЯ</span><span class="dot">▼</span>
-      <span>БЕЙСБОЛКИ</span><span class="dot">▼</span>
-      <span>ШАПКИ</span><span class="dot">▼</span>
-      <span>PIPA</span><span class="dot">▼</span>
-      <span>СТИЛЬ УЛИЦ</span><span class="dot">▼</span>
-      <span>КАЗАНЬ</span><span class="dot">▼</span>
-      <span>ОГРАНИЧЕННАЯ СЕРИЯ</span><span class="dot">▼</span>
-      <span>БЕЙСБОЛКИ</span><span class="dot">▼</span>
-      <span>ШАПКИ</span><span class="dot">▼</span>
-      <span>PIPA</span><span class="dot">▼</span>
-      <span>СТИЛЬ УЛИЦ</span><span class="dot">▼</span>
-      <span>КАЗАНЬ</span><span class="dot">▼</span>
-      <span>ОГРАНИЧЕННАЯ СЕРИЯ</span><span class="dot">▼</span>
-      <span>БЕЙСБОЛКИ</span><span class="dot">▼</span>
-      <span>ШАПКИ</span><span class="dot">▼</span>
-      <span>PIPA</span><span class="dot">▼</span>
-      <span>СТИЛЬ УЛИЦ</span><span class="dot">▼</span>
-      <span>КАЗАНЬ</span><span class="dot">▼</span>
-      <span>ОГРАНИЧЕННАЯ СЕРИЯ</span><span class="dot">▼</span>
-      <span>БЕЙСБОЛКИ</span><span class="dot">▼</span>
-      <span>ШАПКИ</span><span class="dot">▼</span>
-    </div>
-  </div>
-
-  <!-- ══════════════ VALUE PROPS ══════════════ -->
-  <section class="vprops">
-    <div class="vprops-grid">
-      <div class="vprop" data-reveal="" data-reveal-delay="0">
-        <div class="vprop-num">01</div>
-        <div class="vprop-text">
-          <h3>Уличный стиль</h3>
-          <p>Дизайн, рождённый на улицах Казани — для тех, кто определяет тренды, а не следует им</p>
-        </div>
-      </div>
-      <div class="vprop" data-reveal="" data-reveal-delay="1">
-        <div class="vprop-num">02</div>
-        <div class="vprop-text">
-          <h3>Лимитированный выпуск</h3>
-          <p>Каждая модель — ограниченный тираж. Когда закончится — следи за новым дропом</p>
-        </div>
-      </div>
-      <div class="vprop" data-reveal="" data-reveal-delay="2">
-        <div class="vprop-num">03</div>
-        <div class="vprop-text">
-          <h3>Фирменная упаковка</h3>
-          <p>Коробка с логотипом для бейсболок, бархатный мешочек для шапок — уже подарок</p>
-        </div>
-      </div>
-      <div class="vprop" data-reveal="" data-reveal-delay="3">
-        <div class="vprop-num">04</div>
-        <div class="vprop-text">
-          <h3>Покупка на Ozon</h3>
-          <p>Оплата при получении, примерка в пункте выдачи, возврат по правилам маркетплейса. Доставка по всей России</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════ БЕЙСБОЛКИ ══════════════ -->
-  <section class="collection" id="caps">
-    <div class="collection-header">
-      <div class="col-tag">Коллекция / 01 · Ограниченная серия</div>
-      <h2 class="col-title">БЕЙСБОЛКИ</h2>
-      <p class="col-sub">Трекер-стиль. Сетчатая спинка, structured козырёк, фирменная нашивка PIPA. В фирменной коробке. Количество ограничено.</p>
-    </div>
-
-    <div class="col-tag" style="text-align:center;margin-bottom:8px;font-size:15px;color:#E53935;">Новый дроп · 2026</div>
-
-    <div class="caps-grid caps-grid--4" style="margin-bottom:60px;">
-      <div class="cap-card" data-reveal="" data-reveal-delay="0">
-        <div class="cap-card-img">
-          <img src="images/pipa-gym-drop.jpg" alt="PIPA GYM — серая бейсболка сетка, новый дроп" loading="lazy">
-          <div class="cap-label label-hit"><i class="fas fa-crown"></i> НОВИНКА</div>
-        </div>
-        <div class="cap-card-body">
-          <div class="cap-card-top">
-            <h3>PIPA GYM</h3>
-          </div>
-          <p>Серая бейсболка с сетчатой спинкой. Структурированный козырёк, фирменная нашивка PIPA. Snapback. В фирменной коробке.</p>
-          <div class="cap-size">Размер: 55–61 см</div>
-          <a class="cap-buy-btn" href="https://www.ozon.ru/product/4494837920/" target="_blank" rel="noopener">
-            КУПИТЬ НА OZON <i class="fas fa-arrow-right"></i>
-          </a>
-        </div>
-      </div>
-
-      <div class="cap-card cap-card--dark" data-reveal="" data-reveal-delay="1">
-        <div class="cap-card-img">
-          <img src="images/pipa-mafia-drop.jpg" alt="PIPA MAFIA — чёрная бейсболка, новый дроп" loading="lazy">
-        </div>
-        <div class="cap-card-body">
-          <div class="cap-card-top">
-            <h3>PIPA MAFIA</h3>
-          </div>
-          <p>Чёрная бейсболка с сетчатой спинкой. Структурированный козырёк, нашивка PIPA. Snapback. В фирменной коробке.</p>
-          <div class="cap-size">Размер: 55–61 см</div>
-          <a class="cap-buy-btn" href="https://www.ozon.ru/product/4494400727/" target="_blank" rel="noopener">
-            КУПИТЬ НА OZON <i class="fas fa-arrow-right"></i>
-          </a>
-        </div>
-      </div>
-
-      <div class="cap-card" data-reveal="" data-reveal-delay="2">
-        <div class="cap-card-img">
-          <img src="images/pipa-7-drop.jpg" alt="PIPA №7 — чёрная бейсболка с цифрой 7, новый дроп" loading="lazy">
-        </div>
-        <div class="cap-card-body">
-          <div class="cap-card-top">
-            <h3>PIPA №7</h3>
-          </div>
-          <p>Чёрная бейсболка с цифрой 7 спереди. Сетчатая спинка, структурированный козырёк. Snapback. В фирменной коробке.</p>
-          <div class="cap-size">Размер: 55–61 см</div>
-          <a class="cap-buy-btn" href="https://www.ozon.ru/product/4494669190/" target="_blank" rel="noopener">
-            КУПИТЬ НА OZON <i class="fas fa-arrow-right"></i>
-          </a>
-        </div>
-      </div>
-
-      <div class="cap-card cap-card--dark" data-reveal="" data-reveal-delay="3">
-        <div class="cap-card-img">
-          <img src="images/pipa-multicam-drop.jpg" alt="PIPA MULTICAM — камуфляжная бейсболка с нашивкой P" loading="lazy">
-        </div>
-        <div class="cap-card-body">
-          <div class="cap-card-top">
-            <h3>PIPA MULTICAM</h3>
-          </div>
-          <p>Серо-чёрный камуфляж, тёмная сетчатая спинка, объёмная нашивка-щит с буквой P. Snapback. В фирменной коробке.</p>
-          <div class="cap-size">Размер: 55–61 см</div>
-          <a class="cap-buy-btn" href="https://www.ozon.ru/product/5700107736/" target="_blank" rel="noopener">
-            КУПИТЬ НА OZON <i class="fas fa-arrow-right"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <div class="soldout-header" style="margin-bottom:40px;">
-      <div class="soldout-line"></div>
-      <span>ЗАКОНЧИЛИСЬ В ЭТОМ ДРОПЕ</span>
-      <div class="soldout-line"></div>
-    </div>
-
-    <div class="caps-grid">
-      <div class="cap-card cap-card-sold cap-card-sold--dark" data-reveal="" data-reveal-delay="0">
-        <div class="cap-card-img">
-          <img src="images/cap-red.jpg" alt="PIPA RED — бейсболка белый передок бордовая сетка, купить Казань" loading="lazy">
-          <div class="soldout-overlay">
-            <span>SOLD OUT</span>
-          </div>
-        </div>
-        <div class="cap-card-body">
-          <div class="cap-card-top">
-            <h3>PIPA RED</h3>
-            
-          </div>
-          <p>Белый передок, бордовая сетка, бирюзовый козырёк. Нашивка P с синей точкой. Кнопка-корона. Snapback.</p>
-          <div class="cap-size">Размер: 55–61 см</div>
-          <a class="cap-buy-btn cap-notify-btn" href="https://vk.com/pipa_sila" target="_blank" rel="noopener">
-            <i class="fab fa-vk"></i> Следить за дропами
-          </a>
-        </div>
-      </div>
-
-      <div class="cap-card cap-card-sold" data-reveal="" data-reveal-delay="1">
-        <div class="cap-card-img">
-          <img src="images/cap-black.jpg" alt="PIPA KHAKI — бейсболка хаки тёмная сетка, уличный бренд Казань" loading="lazy">
-          <div class="soldout-overlay">
-            <span>SOLD OUT</span>
-          </div>
-        </div>
-        <div class="cap-card-body">
-          <div class="cap-card-top">
-            <h3>PIPA KHAKI</h3>
-            
-          </div>
-          <p>Хаки + тёмная сетка. Тональная нашивка с логотипом. Минималистичный брутальный образ для улицы.</p>
-          <div class="cap-size">Размер: 55–61 см</div>
-          <a class="cap-buy-btn cap-notify-btn" href="https://vk.com/pipa_sila" target="_blank" rel="noopener">
-            <i class="fab fa-vk"></i> Следить за дропами
-          </a>
-        </div>
-      </div>
-
-      <div class="cap-card cap-card-sold" data-reveal="" data-reveal-delay="2">
-        <div class="cap-card-img">
-          <img src="images/cap-blue.jpg" alt="PIPA BLUE — бейсболка голубая сетка козырёк, лимитированная серия" loading="lazy">
-          <div class="soldout-overlay">
-            <span>SOLD OUT</span>
-          </div>
-        </div>
-        <div class="cap-card-body">
-          <div class="cap-card-top">
-            <h3>PIPA BLUE</h3>
-            
-          </div>
-          <p>Белый передок, голубая сетка и козырёк. Объёмный логотип P с фирменной точкой. Кнопка-корона.</p>
-          <div class="cap-size">Размер: 55–61 см</div>
-          <a class="cap-buy-btn cap-notify-btn" href="https://vk.com/pipa_sila" target="_blank" rel="noopener">
-            <i class="fab fa-vk"></i> Следить за дропами
-          </a>
-        </div>
-      </div>
-
-      <div class="cap-card cap-card-sold" data-reveal="" data-reveal-delay="3">
-        <div class="cap-card-img">
-          <img src="images/cap-white.jpg" alt="PIPA WHITE — бейсболка белая sold out, ожидается новый дроп" loading="lazy">
-          <div class="soldout-overlay">
-            <span>SOLD OUT</span>
-          </div>
-        </div>
-        <div class="cap-card-body">
-          <div class="cap-card-top">
-            <h3>PIPA WHITE</h3>
-            
-          </div>
-          <p>Белый передок, тёмно-серая сетка. Крупная нашивка P. Минималистичный образ.</p>
-          <div class="cap-size">Размер: 55–61 см</div>
-          <a class="cap-buy-btn cap-notify-btn" href="https://vk.com/pipa_sila" target="_blank" rel="noopener">
-            <i class="fab fa-vk"></i> Следить за дропами
-          </a>
-        </div>
-      </div>
-
-      <div class="cap-card cap-card-sold cap-card-sold--dark" data-reveal="" data-reveal-delay="4">
-        <div class="cap-card-img">
-          <img src="images/cap-black1.jpg" alt="PIPA №1 — бейсболка чёрная с вышитой единицей sold out" loading="lazy">
-          <div class="soldout-overlay">
-            <span>SOLD OUT</span>
-          </div>
-        </div>
-        <div class="cap-card-body">
-          <div class="cap-card-top">
-            <h3>PIPA №1</h3>
-            
-          </div>
-          <p>Полностью чёрный трекер. Большая вышитая «1» на передке. Кнопка-корона.</p>
-          <div class="cap-size">Размер: 55–61 см</div>
-          <a class="cap-buy-btn cap-notify-btn" href="https://vk.com/pipa_sila" target="_blank" rel="noopener">
-            <i class="fab fa-vk"></i> Следить за дропами
-          </a>
-        </div>
-      </div>
-    </div>
-
-  </section>
-
-  <!-- ══════════════ SPLIT-BANNER ══════════════ -->
-  <section class="split-banner">
-    <div class="split-left">
-      <div class="split-content">
-        <span class="split-tag">Каждая бейсболка</span>
-        <h2>В фирменной<br>коробке PIPA</h2>
-        <p>Стильная упаковка с логотипом. Открываешь — ощущаешь бренд. Готовый подарок без лишних слов.</p>
-      </div>
-    </div>
-    <div class="split-right">
-      <img src="images/pipa-mafia-box.jpg" alt="PIPA MAFIA — чёрная бейсболка в фирменной коробке PIPA">
-    </div>
-  </section>
-
-  <!-- ══════════════ ОСЕННИЕ ШАПКИ ══════════════ -->
-  <section class="collection collection-alt" id="autumn">
-    <div class="collection-header">
-      <div class="col-tag">Коллекция / 02</div>
-      <h2 class="col-title">ОСЕННИЕ ШАПКИ</h2>
-      <p class="col-sub">Мягкие вязаные шапки-бини в фирменном бархатном мешочке PIPA. Пять цветов: бежевый, серый, красный, белый, чёрный.</p>
-    </div>
-    <div class="beanie-section">
-      <div class="beanie-img-wrap" data-reveal="">
-        <img src="images/beanies-autumn.jpg" alt="PIPA BEANIE CLASSIC — осенние вязаные шапки 5 цветов, бренд Казань">
-        <div class="beanie-overlay"><span>5 ЦВЕТОВ</span></div>
-      </div>
-      <div class="beanie-info" data-reveal="">
-        <div class="beanie-badge">Осень · В мешочке PIPA</div>
-        <h3>PIPA BEANIE<br><span>CLASSIC</span></h3>
-        <p>Рифлёная вязка, мягкий состав. Длинный силуэт — носи как хочешь. Бирка PIPA на манжете. Поставляется в фирменном бархатном мешочке с логотипом.</p>
-        <ul class="beanie-features">
-          <li><i class="fas fa-check"></i> Состав: 50% шерсть, 50% акрил</li>
-          <li><i class="fas fa-check"></i> Один размер — подходит всем</li>
-          <li><i class="fas fa-check"></i> В фирменном бархатном мешочке PIPA</li>
-          <li><i class="fas fa-check"></i> 5 цветов</li>
-        </ul>
-        <div class="beanie-colors-row">
-          <span class="bc" style="background:#C8B49A;" title="Бежевый"></span>
-          <span class="bc" style="background:#6B6B6B;" title="Серый"></span>
-          <span class="bc" style="background:#C0392B;" title="Красный"></span>
-          <span class="bc" style="background:#F0F0F0; border:1.5px solid #ccc;" title="Белый"></span>
-          <span class="bc" style="background:#1a1a1a;" title="Чёрный"></span>
-        </div>
-        <div class="beanie-price-row">
-          <a class="cap-buy-btn" href="https://www.ozon.ru/seller/pipa-1613537/" target="_blank" rel="noopener">
-            КУПИТЬ НА OZON <i class="fas fa-arrow-right"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════ ЗИМНИЕ ШАПКИ ══════════════ -->
-  <section class="collection" id="winter">
-    <div class="collection-header">
-      <div class="col-tag">Коллекция / 03</div>
-      <h2 class="col-title">ЗИМНИЕ ШАПКИ</h2>
-      <p class="col-sub">Плотные зимние шапки в фирменном мешочке. Белый, чёрный, розовый неон, бежевый, графит.</p>
-    </div>
-    <div class="beanie-section beanie-section--reverse">
-      <div class="beanie-info" data-reveal="">
-        <div class="beanie-badge beanie-badge--dark">Зима · В мешочке PIPA</div>
-        <h3>PIPA BEANIE<br><span>WINTER</span></h3>
-        <p>Усиленная плотная вязка для зимних температур. Смелая цветовая гамма — от классики до неона. В мешочке с принтом PIPA.</p>
-        <ul class="beanie-features">
-          <li><i class="fas fa-check"></i> Состав: 50% шерсть, 50% акрил</li>
-          <li><i class="fas fa-check"></i> Плотная двойная вязка</li>
-          <li><i class="fas fa-check"></i> В фирменном бархатном мешочке PIPA</li>
-          <li><i class="fas fa-check"></i> 5 цветов</li>
-        </ul>
-        <div class="beanie-colors-row">
-          <span class="bc" style="background:#F0F0F0; border:1.5px solid #ccc;" title="Белый"></span>
-          <span class="bc" style="background:#1a1a1a;" title="Чёрный"></span>
-          <span class="bc" style="background:#FF3BA7;" title="Розовый неон"></span>
-          <span class="bc" style="background:#C8B49A;" title="Бежевый"></span>
-          <span class="bc" style="background:#4A4A4A;" title="Графит"></span>
-        </div>
-        <div class="beanie-price-row">
-          <a class="cap-buy-btn" href="https://www.ozon.ru/seller/pipa-1613537/" target="_blank" rel="noopener">
-            КУПИТЬ НА OZON <i class="fas fa-arrow-right"></i>
-          </a>
-        </div>
-      </div>
-      <div class="beanie-img-wrap" data-reveal="">
-        <img src="images/beanies-winter.jpg" alt="PIPA BEANIE WINTER — зимние шапки плотная вязка 5 цветов">
-        <div class="beanie-overlay"><span>5 ЦВЕТОВ</span></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════ ЛИМИТИРОВАННАЯ ШАПКА ══════════════ -->
-  <section class="limited-section" id="limited">
-    <div class="limited-inner">
-      <div class="limited-text" data-reveal="">
-        <div class="limited-tag">
-          <i class="fas fa-bolt"></i> Лимитированная модель
-        </div>
-        <h2>PIPA B&amp;W<br><span>ДВУХЦВЕТНАЯ</span></h2>
-        <p>Контрастная чёрно-белая шапка с вертикальным разделением. Такого ты ещё не видел. Каждая — в фирменном бархатном мешочке. Количество строго ограничено.</p>
-        <ul class="beanie-features">
-          <li><i class="fas fa-check"></i> Контрастный двухцветный дизайн</li>
-          <li><i class="fas fa-check"></i> Ограниченный тираж</li>
-          <li><i class="fas fa-check"></i> В фирменном бархатном мешочке PIPA</li>
-          <li><i class="fas fa-check"></i> Бирка PIPA на манжете</li>
-        </ul>
-        <div class="limited-price-row">
-          <a class="cap-buy-btn cap-buy-btn--accent" href="https://vk.com/pipa_sila" target="_blank" rel="noopener">
-            <i class="fab fa-vk"></i> УЗНАТЬ О НАЛИЧИИ
-          </a>
-        </div>
-      </div>
-      <div class="limited-imgs" data-reveal="">
-        <div class="limited-img-main">
-          <img src="images/beanie-bw-product.jpg" alt="PIPA B&W — двухцветная шапка чёрно-белая лимитированная серия">
-        </div>
-        <div class="limited-img-promo">
-          <img src="images/beanie-bw-promo.jpg" alt="PIPA B&W — уличный стиль Казань, streetwear лимитка">
-          <div class="limited-img-badge">СТИЛЬ УЛИЦ</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════ ИСТОРИЯ ══════════════ -->
-  <section class="story-section" id="story">
-    <div class="story-inner">
-      <div class="story-left" data-reveal="">
-        <div class="story-tag">Почему PIPA?</div>
-        <h2 class="story-title">История,<br>которая<br>началась<br><span>на улицах</span></h2>
-        <div class="story-city">Казань · Нулевые</div>
-      </div>
-      <div class="story-right" data-reveal="">
-        <div class="story-text">
-          <p class="story-lead">Время, когда улицы жили по своим правилам.</p>
-          <p>Тогда одежда была больше, чем просто вещь. Она говорила за тебя — кто ты, откуда ты и какое у тебя место в этом мире.</p>
-          <p>Некоторые детали образа имели особое значение. И такие шапки были одной из них.</p>
-          <blockquote class="story-quote">
-            «Их не носили "просто так". Это был символ — силы, статуса и принадлежности. Не каждый мог их надеть. И не каждый мог их "понести".»
-          </blockquote>
-          <p>Это была часть уличной культуры, где внешний вид решал многое. Где стиль формировался не трендами, а реальностью вокруг.</p>
-          <div class="story-divider">
-            <span>ПРОШЛО ВРЕМЯ</span>
-          </div>
-          <p>Сегодня такие вещи стали доступнее. Но их смысл никуда не исчез.</p>
-          <p><strong>PIPA — это переосмысление той самой эстетики.</strong> Мы взяли дух улиц и сделали его частью современного стиля.</p>
-          <p>Теперь это не про «избранных». Это про выбор.</p>
-          <div class="story-values">
-            <div class="story-val">Выглядеть сильнее.</div>
-            <div class="story-val">Выделяться.</div>
-            <div class="story-val">Быть собой.</div>
-          </div>
-          <p class="story-end">Если тебе близка эта философия — ты в нужном месте.</p>
-        </div>
-        <a href="https://vk.com/pipa_sila" target="_blank" rel="noopener" class="btn-main story-btn">
-          <i class="fab fa-vk"></i> Вступить в комьюнити
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════ ПРОМО ══════════════ -->
-  <section class="promo-banner">
-    <div class="promo-inner">
-      <div class="promo-logo-wrap">
-        <img src="images/logo.png" alt="PIPA" class="promo-logo">
-      </div>
-      <div class="promo-text">
-        <div class="promo-tag">Специальное предложение</div>
-        <h2>СКИДКА 20%<br>НА ПЕРВЫЙ ЗАКАЗ</h2>
-        <p>Используй промокод при оформлении заказа через ВКонтакте.<br><small style="opacity:0.7;">На покупки через Ozon промокод не действует.</small></p>
-        <div class="promo-code-box">
-          <span class="promo-code" id="promoCode">PIPA20</span>
-          <button class="promo-copy" id="copyBtn" onclick="copyPromo()">
-            <i class="fas fa-copy"></i> Скопировать
-          </button>
-        </div>
-        <a href="https://www.ozon.ru/seller/pipa-1613537/" target="_blank" rel="noopener" class="btn-main btn-main--white" style="margin-bottom:10px;background:#005bff;border-color:#005bff;">
-          <i class="fas fa-shopping-bag"></i> Купить на Ozon
-        </a>
-        <a href="https://vk.com/pipa_sila" target="_blank" rel="noopener" class="btn-main btn-main--white">
-          <i class="fab fa-vk"></i> Написать и заказать
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════ ОТЗЫВЫ ══════════════ -->
-  <section class="reviews" id="reviews">
-    <div class="reviews-inner">
-      <div class="reviews-header">
-        <div class="col-tag">Отзывы</div>
-        <h2 class="col-title">ЧТО ГОВОРЯТ</h2>
-        <p style="color:var(--gray);max-width:560px;margin:16px 0 28px;line-height:1.7;">Настоящие отзывы покупателей с фото — в карточках PIPA на Ozon. Смотри, как кепки сидят на разных людях, прежде чем выбрать свою.</p>
-        <a href="https://www.ozon.ru/seller/pipa-1613537/" target="_blank" rel="noopener" class="btn-main" style="background:#005bff;border-color:#005bff;">
-          <i class="fas fa-star"></i> Читать отзывы на Ozon
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════ ДОСТАВКА ══════════════ -->
-  <section class="vprops" id="delivery" style="background:#111;padding:60px 0;">
-    <div style="max-width:1200px;margin:0 auto;padding:0 24px;">
-      <div style="text-align:center;margin-bottom:40px;">
-        <div class="col-tag">Доставка и оплата</div>
-        <h2 class="col-title" style="font-size:clamp(2rem,5vw,3.5rem);">ЗАКАЗАТЬ ПРОСТО</h2>
-        <p style="color:#aaa;max-width:600px;margin:0 auto;font-size:1rem;line-height:1.7;">
-          Кепки и шапки PIPA доставляем по всей России. Купить бейсболку или шапку бини можно на Ozon или напрямую через ВКонтакте — выбирай как удобнее.
-        </p>
-      </div>
-      <div class="vprops-grid">
-        <div class="vprop" data-reveal="" data-reveal-delay="0">
-          <div class="vprop-num">01</div>
-          <div class="vprop-text">
-            <h3>Заказ на Ozon</h3>
-            <p>Быстрая доставка через маркетплейс. Оплата картой или при получении, возврат по правилам Ozon. Доставка в пункты выдачи и курьером по всей России.</p>
-          </div>
-        </div>
-        <div class="vprop" data-reveal="" data-reveal-delay="1">
-          <div class="vprop-num">02</div>
-          <div class="vprop-text">
-            <h3>Заказ через ВКонтакте</h3>
-            <p>Напиши нам в группу @pipa_sila — поможем выбрать модель, оформим заказ и вышлем напрямую. Скидка 20% по промокоду PIPA20.</p>
-          </div>
-        </div>
-        <div class="vprop" data-reveal="" data-reveal-delay="2">
-          <div class="vprop-num">03</div>
-          <div class="vprop-text">
-            <h3>Оплата</h3>
-            <p>Банковская карта, СБП, перевод. Доставка СДЭК, Яндекс.Доставка, Почта России. Отправляем из Казани — срок доставки 2–7 рабочих дней.</p>
-          </div>
-        </div>
-        <div class="vprop" data-reveal="" data-reveal-delay="3">
-          <div class="vprop-num">04</div>
-          <div class="vprop-text">
-            <h3>Упаковка в подарок</h3>
-            <p>Бейсболки — в фирменной коробке PIPA. Шапки бини — в бархатном мешочке с логотипом. Уже готово как подарок, без доплаты.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════ FAQ ══════════════ -->
-  <section style="background:#0a0a0a;padding:60px 0 80px;" id="faq">
-    <div style="max-width:800px;margin:0 auto;padding:0 24px;">
-      <div style="text-align:center;margin-bottom:40px;">
-        <div class="col-tag">Вопросы и ответы</div>
-        <h2 class="col-title" style="font-size:clamp(2rem,5vw,3.5rem);">FAQ</h2>
-      </div>
-      <div style="display:flex;flex-direction:column;gap:16px;">
-        <div style="border:1px solid #222;border-radius:12px;padding:24px;">
-          <h3 style="color:#fff;font-size:1rem;font-weight:700;margin:0 0 8px;font-family:'Inter',sans-serif;">Где купить кепки и шапки PIPA?</h3>
-          <p style="color:#aaa;font-size:0.95rem;line-height:1.6;margin:0;">Уличные кепки и шапки PIPA можно купить на Ozon — ищи продавца <strong style="color:#fff;">PIPA</strong> в каталоге. Также принимаем заказы напрямую через ВКонтакте: группа <strong style="color:#fff;">vk.com/pipa_sila</strong>. Доставка по всей России.</p>
-        </div>
-        <div style="border:1px solid #222;border-radius:12px;padding:24px;">
-          <h3 style="color:#fff;font-size:1rem;font-weight:700;margin:0 0 8px;font-family:'Inter',sans-serif;">Какой размер у бейсболок PIPA?</h3>
-          <p style="color:#aaa;font-size:0.95rem;line-height:1.6;margin:0;">Все бейсболки PIPA — snapback с регулируемой застёжкой сзади, обхват 55–61 см. У моделей высокая тулья и изогнутый козырёк — посмотри фото на людях в карточке на Ozon, чтобы понять посадку. Шапки бини тоже размер one size — растягиваются под форму головы.</p>
-        </div>
-        <div style="border:1px solid #222;border-radius:12px;padding:24px;">
-          <h3 style="color:#fff;font-size:1rem;font-weight:700;margin:0 0 8px;font-family:'Inter',sans-serif;">Чем отличается осенняя шапка от зимней?</h3>
-          <p style="color:#aaa;font-size:0.95rem;line-height:1.6;margin:0;"><strong style="color:#fff;">PIPA Beanie Classic</strong> (осенняя) — состав 50% шерсть, 50% акрил, рифлёная вязка, лёгкая. <strong style="color:#fff;">PIPA Beanie Winter</strong> (зимняя) — 50% шерсть, 50% акрил, двойная плотная вязка, для морозов. Обе в фирменном бархатном мешочке.</p>
-        </div>
-        <div style="border:1px solid #222;border-radius:12px;padding:24px;">
-          <h3 style="color:#fff;font-size:1rem;font-weight:700;margin:0 0 8px;font-family:'Inter',sans-serif;">Есть ли скидки на кепки и шапки PIPA?</h3>
-          <p style="color:#aaa;font-size:0.95rem;line-height:1.6;margin:0;">Да. При заказе через ВКонтакте действует промокод <strong style="color:#fff;">PIPA20</strong> — скидка 20% на первый заказ. На Ozon промокод не работает, но там бывают акции маркетплейса.</p>
-        </div>
-        <div style="border:1px solid #222;border-radius:12px;padding:24px;">
-          <h3 style="color:#fff;font-size:1rem;font-weight:700;margin:0 0 8px;font-family:'Inter',sans-serif;">Повторяются ли модели PIPA?</h3>
-          <p style="color:#aaa;font-size:0.95rem;line-height:1.6;margin:0;">PIPA выпускает модели ограниченными партиями. Самые любимые иногда возвращаются новым дропом, а некоторые уходят навсегда. Следи за новостями в ВКонтакте, чтобы не пропустить.</p>
-        </div>
-        <div style="border:1px solid #222;border-radius:12px;padding:24px;">
-          <h3 style="color:#fff;font-size:1rem;font-weight:700;margin:0 0 8px;font-family:'Inter',sans-serif;">Откуда бренд PIPA и что он означает?</h3>
-          <p style="color:#aaa;font-size:0.95rem;line-height:1.6;margin:0;">PIPA — уличный бренд головных уборов родом из Казани (Республика Татарстан). Вдохновлён уличной культурой нулевых. Streetwear-эстетика, где каждая вещь — символ стиля, а не просто одежда.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════ TG CTA ══════════════ -->
-  <section class="tg-cta">
-    <div class="tg-cta-inner">
-      <div class="tg-cta-icon"><i class="fab fa-vk"></i></div>
-      <div class="tg-cta-text">
-        <h3>Все дропы — в ВКонтакте</h3>
-        <p>Подписывайся на группу PIPA — первым узнаешь о новых поступлениях, акциях и лимитированных моделях.</p>
-      </div>
-      <a href="https://vk.com/pipa_sila" target="_blank" rel="noopener" class="btn-main">
-        <i class="fab fa-vk"></i> @pipa_sila
-      </a>
-    </div>
-  </section>
-
-  <!-- ══════════════ FOOTER ══════════════ -->
-  <footer class="footer" id="contact">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <img src="images/logo.png" alt="PIPA" class="footer-logo-img">
-        <p>Уличный бренд головных уборов из Казани. Ограниченные серии для тех, кто живёт в движении.</p>
-        <div class="footer-social">
-          <a href="https://www.ozon.ru/seller/pipa-1613537/" target="_blank" rel="noopener" aria-label="Ozon"><i class="fas fa-shopping-bag"></i></a>
-          <a href="https://vk.com/pipa_sila" target="_blank" rel="noopener" aria-label="ВКонтакте"><i class="fab fa-vk"></i></a>
-        </div>
-      </div>
-      <div class="footer-col">
-        <h4>Коллекция</h4>
-        <ul>
-          <li><a href="#caps">Бейсболки</a></li>
-          <li><a href="#autumn">Осенние шапки</a></li>
-          <li><a href="#winter">Зимние шапки</a></li>
-          <li><a href="#limited">Лимитированная B&amp;W</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Информация</h4>
-        <ul>
-          <li><a href="#story">История бренда</a></li>
-          <li><a href="#delivery">Как заказать</a></li>
-          <li><a href="#faq">Вопросы и ответы</a></li>
-          <li><a href="#" onclick="showPrivacy(); return false;">Конфиденциальность</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Связаться</h4>
-        <ul class="footer-contacts">
-          <li><i class="fas fa-shopping-bag"></i><a href="https://www.ozon.ru/seller/pipa-1613537/" target="_blank" rel="noopener">PIPA на Ozon</a></li>
-          <li><i class="fab fa-vk"></i><a href="https://vk.com/pipa_sila" target="_blank" rel="noopener">@pipa_sila</a></li>
-          <li><i class="fas fa-clock"></i><span>Пн–Пт: 10:00–19:00</span></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© 2026 PIPA. Стиль улиц. Казань.</span>
-      <div class="footer-legal">
-        <a href="#" onclick="showPrivacy(); return false;">Политика конфиденциальности</a>
-      </div>
-    </div>
-  </footer>
-
-  <!-- ══════════════ PRIVACY MODAL ══════════════ -->
-  <div class="modal-overlay" id="privacyModal">
-    <div class="modal modal-wide">
-      <button class="modal-close" onclick="closeModal('privacyModal')"><i class="fas fa-times"></i></button>
-      <h3>Конфиденциальность</h3>
-      <div class="privacy-body">
-        <p>Сайт pipasila.ru — информационная витрина бренда PIPA.</p>
-        <p>Мы не собираем персональные данные: на сайте нет форм, регистрации, файлов cookie и счётчиков аналитики.</p>
-        <p>Покупки оформляются на Ozon или во ВКонтакте — по правилам и политике конфиденциальности этих площадок.</p>
-      </div>
-      <button class="btn-main" onclick="closeModal('privacyModal')">Понятно</button>
-    </div>
-  </div>
-
-  <!-- ══════════════ TOAST ══════════════ -->
-  <div class="toast" id="toast">
-    <i class="fas fa-check-circle"></i>
-    <span id="toastMsg">Готово!</span>
-  </div>
-
-  <script src="js/main.js?v=4"></script>
-
-  <!-- Schema.org — AEO + GEO -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "ClothingStore",
     "name": "PIPA",
-    "description": "Уличный бренд кепок и шапок из Казани. Лимитированные серии, ограниченный тираж.",
-    "url": "https://pipasila.ru",
-    "logo": "https://pipasila.ru/images/logo.png",
-    "image": "https://pipasila.ru/images/pipa-gym-drop.jpg",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Казань",
-      "addressRegion": "Республика Татарстан",
-      "addressCountry": "RU"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 55.7887,
-      "longitude": 49.1221
-    },
-    "sameAs": [
-      "https://vk.com/pipa_sila",
-      "https://www.ozon.ru/seller/pipa-1613537/"
-    ],
-    "priceRange": "₽₽",
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Коллекции PIPA",
-      "itemListElement": [
-        {"@type": "OfferCatalog", "name": "Бейсболки"},
-        {"@type": "OfferCatalog", "name": "Осенние шапки"},
-        {"@type": "OfferCatalog", "name": "Зимние шапки"},
-        {"@type": "OfferCatalog", "name": "Лимитированная серия"}
-      ]
-    }
+    "description": "Уличный бренд кепок и шапок из Казани. Модели выходят ограниченными партиями.",
+    "url": "https://pipasila.ru/",
+    "logo": "https://pipasila.ru/images/logo-dark.png",
+    "image": "https://pipasila.ru/images/hero-gym.jpg",
+    "address": { "@type": "PostalAddress", "addressLocality": "Казань", "addressRegion": "Республика Татарстан", "addressCountry": "RU" },
+    "sameAs": ["https://vk.com/pipa_sila", "https://www.ozon.ru/seller/pipa-1613537/"]
   }
   </script>
-
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "Где купить кепки и шапки PIPA?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Кепки и шапки PIPA можно купить на Ozon (ozon.ru/seller/pipa-1613537/) или заказать через ВКонтакте (vk.com/pipa_sila)."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Откуда бренд PIPA?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "PIPA — уличный бренд из Казани, Республика Татарстан. Специализируется на кепках и шапках лимитированными сериями."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Есть ли промокод PIPA?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Промокод PIPA20 даёт скидку 20% при заказе через ВКонтакте (vk.com/pipa_sila). На Ozon промокод не действует."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Повторяются ли коллекции PIPA?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "PIPA выпускает модели ограниченными партиями. Самые любимые иногда возвращаются новым дропом — новости в ВКонтакте (vk.com/pipa_sila)."
-        }
-      }
+      { "@type": "Question", "name": "Где купить кепки и шапки PIPA?", "acceptedAnswer": { "@type": "Answer", "text": "На Ozon (ozon.ru/seller/pipa-1613537/) или через сообщения группы ВКонтакте (vk.com/pipa_sila)." } },
+      { "@type": "Question", "name": "Какой размер у бейсболок PIPA?", "acceptedAnswer": { "@type": "Answer", "text": "Snapback с регулировкой сзади, обхват 55–61 см. У моделей высокая тулья и изогнутый козырёк." } },
+      { "@type": "Question", "name": "Есть ли промокод PIPA?", "acceptedAnswer": { "@type": "Answer", "text": "Промокод PIPA20 даёт скидку 20% на первый заказ через ВКонтакте. На Ozon он не действует." } },
+      { "@type": "Question", "name": "Повторяются ли модели PIPA?", "acceptedAnswer": { "@type": "Answer", "text": "Модели выходят ограниченными партиями. Самые любимые иногда возвращаются новым дропом — новости во ВКонтакте." } }
     ]
   }
   </script>
+</head>
+<body>
+
+<a class="skip" href="#caps">Перейти к моделям</a>
+
+<header class="top" id="top">
+  <div class="top__in">
+    <a href="#top" class="top__logo" aria-label="PIPA — наверх">
+      <img src="images/logo-light.png" alt="PIPA" width="88" height="68">
+    </a>
+    <nav class="top__nav" id="nav" aria-label="Разделы">
+      <a href="#caps">Бейсболки</a>
+      <a href="#beanies">Шапки</a>
+      <a href="#story">История</a>
+      <a href="#buy">Где купить</a>
+    </nav>
+    <a class="btn btn--red top__cta" href="https://www.ozon.ru/seller/pipa-1613537/" target="_blank" rel="noopener">Ozon</a>
+    <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="nav"><span></span><span></span></button>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero__text">
+      <h1 class="hero__title">Стиль<br>улиц</h1>
+      <p class="hero__lead">PIPA — кепки и шапки из Казани. Выросли из уличной культуры нулевых, выходят ограниченными партиями.</p>
+      <div class="hero__actions">
+        <a class="btn btn--red" href="https://www.ozon.ru/seller/pipa-1613537/" target="_blank" rel="noopener"><i class="fas fa-bag-shopping" aria-hidden="true"></i> Купить на Ozon</a>
+        <a class="btn btn--line" href="https://vk.com/pipa_sila" target="_blank" rel="noopener"><i class="fab fa-vk" aria-hidden="true"></i> ВКонтакте</a>
+      </div>
+    </div>
+    <figure class="hero__photo">
+      <img src="images/hero-gym.jpg" alt="Бейсболка PIPA GYM на бетонном манекене" width="1000" height="1400" fetchpriority="high">
+      <figcaption>PIPA GYM</figcaption>
+    </figure>
+    <ul class="facts">
+      <li><b>Казань</b><span>город, где родился бренд</span></li>
+      <li><b>Коробка и мешочек</b><span>фирменная упаковка в каждом заказе</span></li>
+      <li><b>Вся Россия</b><span>доставка Ozon в пункт выдачи или курьером</span></li>
+    </ul>
+  </section>
+
+  <!-- CAPS -->
+  <section class="sec sec--concrete" id="caps">
+    <div class="wrap">
+      <div class="head">
+        <h2 class="h2">Бейсболки</h2>
+        <p class="head__note">Тракер с сетчатой спинкой, высокая тулья, изогнутый козырёк, корона на боку. Snapback, обхват 55–61 см.</p>
+      </div>
+
+      <div class="caps">
+        <article class="cap">
+          <img src="images/pipa-gym-drop.jpg" alt="PIPA GYM — белый передок, принт GYM, графитовая сетка" width="900" height="1200" loading="lazy">
+          <div class="cap__body">
+            <h3 class="cap__name">GYM</h3>
+            <p>Белый передок с принтом GYM, графитовые козырёк и сетка.</p>
+            <a class="btn btn--ink" href="https://www.ozon.ru/product/4494837920/" target="_blank" rel="noopener">Купить на Ozon</a>
+          </div>
+        </article>
+        <article class="cap">
+          <img src="images/pipa-mafia-drop.jpg" alt="PIPA MAFIA — чёрная бейсболка с красной пластиной MAFIA" width="900" height="1200" loading="lazy">
+          <div class="cap__body">
+            <h3 class="cap__name">MAFIA</h3>
+            <p>Чёрная, с глянцевой красной пластиной MAFIA на заклёпках.</p>
+            <a class="btn btn--ink" href="https://www.ozon.ru/product/4494400727/" target="_blank" rel="noopener">Купить на Ozon</a>
+          </div>
+        </article>
+        <article class="cap">
+          <img src="images/pipa-7-drop.jpg" alt="PIPA №7 — чёрная бейсболка с объёмной серой семёркой" width="900" height="1200" loading="lazy">
+          <div class="cap__body">
+            <h3 class="cap__name">№7</h3>
+            <p>Чёрная, с объёмной серой цифрой 7 спереди.</p>
+            <a class="btn btn--ink" href="https://www.ozon.ru/product/4494669190/" target="_blank" rel="noopener">Купить на Ozon</a>
+          </div>
+        </article>
+        <article class="cap">
+          <img src="images/pipa-multicam-drop.jpg" alt="PIPA MULTICAM — серо-чёрный камуфляж с нашивкой P" width="900" height="1200" loading="lazy">
+          <div class="cap__body">
+            <h3 class="cap__name">Multicam</h3>
+            <p>Серо-чёрный камуфляж, нашивка-щит с буквой P.</p>
+            <a class="btn btn--ink" href="https://www.ozon.ru/product/5700107736/" target="_blank" rel="noopener">Купить на Ozon</a>
+          </div>
+        </article>
+      </div>
+
+      <div class="archive">
+        <div class="archive__text">
+          <h3 class="h3">Разошлись</h3>
+          <p>Этих моделей больше нет в продаже. Новые дропы первыми появляются во ВКонтакте.</p>
+          <a class="btn btn--ink-line" href="https://vk.com/pipa_sila" target="_blank" rel="noopener"><i class="fab fa-vk" aria-hidden="true"></i> Следить за дропами</a>
+        </div>
+        <ul class="archive__list">
+          <li><img src="images/cap-red.jpg" alt="" loading="lazy" width="768" height="1024"><span>Red</span></li>
+          <li><img src="images/cap-black.jpg" alt="" loading="lazy" width="768" height="1024"><span>Khaki</span></li>
+          <li><img src="images/cap-blue.jpg" alt="" loading="lazy" width="768" height="1024"><span>Blue</span></li>
+          <li><img src="images/cap-white.jpg" alt="" loading="lazy" width="768" height="1024"><span>White</span></li>
+          <li><img src="images/cap-black1.jpg" alt="" loading="lazy" width="768" height="1024"><span>№1</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- PACKAGING -->
+  <section class="pack">
+    <img class="pack__img" src="images/pipa-mafia-box.jpg" alt="Бейсболка PIPA MAFIA рядом с фирменной коробкой PIPA" width="900" height="1200" loading="lazy">
+    <div class="pack__text">
+      <h2 class="h2">В коробке,<br>не в пакете</h2>
+      <p>Каждая бейсболка приезжает в фирменной коробке PIPA, каждая шапка — в бархатном мешочке с логотипом. Подарок готов без доплаты.</p>
+    </div>
+  </section>
+
+  <!-- BEANIES -->
+  <section class="sec" id="beanies">
+    <div class="wrap">
+      <div class="head">
+        <h2 class="h2">Шапки</h2>
+        <p class="head__note">Та самая форма из нулевых. Рифлёная вязка, 50% шерсть и 50% акрил, один размер — тянется под голову.</p>
+      </div>
+
+      <div class="beanies">
+        <article class="beanie">
+          <img src="images/beanie-winter-skull.jpg" alt="Зимняя шапка PIPA графитового цвета на бетонном манекене" width="960" height="1200" loading="lazy">
+          <div class="beanie__body">
+            <h3 class="h3">Зимние</h3>
+            <p>Плотная двойная вязка для мороза.</p>
+            <ul class="swatches" aria-label="Цвета">
+              <li><i style="background:#F0EEE9"></i>белый</li>
+              <li><i style="background:#141414"></i>чёрный</li>
+              <li><i style="background:#FF3BA7"></i>фуксия</li>
+              <li><i style="background:#C8B49A"></i>бежевый</li>
+              <li><i style="background:#4A4A4A"></i>антрацит</li>
+            </ul>
+            <a class="btn btn--red" href="https://www.ozon.ru/seller/pipa-1613537/" target="_blank" rel="noopener">Купить на Ozon</a>
+          </div>
+        </article>
+        <article class="beanie">
+          <img src="images/beanies-autumn.jpg" alt="Осенние шапки PIPA пяти цветов и фирменные мешочки" width="768" height="1024" loading="lazy">
+          <div class="beanie__body">
+            <h3 class="h3">Осенние</h3>
+            <p>Лёгкая однослойная вязка на межсезонье.</p>
+            <ul class="swatches" aria-label="Цвета">
+              <li><i style="background:#C8B49A"></i>бежевый</li>
+              <li><i style="background:#6B6B6B"></i>серый</li>
+              <li><i style="background:#C0392B"></i>красный</li>
+              <li><i style="background:#F0EEE9"></i>белый</li>
+              <li><i style="background:#141414"></i>чёрный</li>
+            </ul>
+            <a class="btn btn--red" href="https://www.ozon.ru/seller/pipa-1613537/" target="_blank" rel="noopener">Купить на Ozon</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- B&W LIMITED -->
+  <section class="bw" id="limited">
+    <img class="bw__main" src="images/beanie-bw-skull.jpg" alt="Двухцветная шапка PIPA B&amp;W на бетонном манекене" width="984" height="1200" loading="lazy">
+    <div class="bw__text">
+      <p class="bw__kicker">Лимитированная модель</p>
+      <h2 class="bw__title">B&amp;W</h2>
+      <p>Шапка, разделённая пополам: белая и чёрная половины. Ограниченный тираж, в бархатном мешочке PIPA.</p>
+      <img class="bw__detail" src="images/beanie-bw-detail.jpg" alt="Вязка двухцветной шапки крупным планом" width="800" height="1000" loading="lazy">
+      <a class="btn btn--red" href="https://vk.com/pipa_sila" target="_blank" rel="noopener"><i class="fab fa-vk" aria-hidden="true"></i> Узнать о наличии</a>
+    </div>
+  </section>
+
+  <!-- STORY -->
+  <section class="story" id="story">
+    <div class="wrap story__in">
+      <p class="story__place">Казань, нулевые</p>
+      <blockquote class="story__quote">Их не носили просто так. Это был символ силы, статуса и&nbsp;принадлежности.</blockquote>
+      <div class="story__cols">
+        <p>Время, когда улицы жили по своим правилам. Одежда говорила за тебя: кто ты, откуда и какое у тебя место. Такие шапки были одной из главных деталей образа — не каждый мог их надеть и не каждый мог их «понести».</p>
+        <p>Сегодня эти вещи доступнее, но смысл остался. PIPA переосмысливает ту эстетику и делает её частью современного стиля. Теперь это не про избранных, а про выбор: выглядеть сильнее, выделяться, быть собой.</p>
+      </div>
+      <a class="btn btn--ink" href="https://vk.com/pipa_sila" target="_blank" rel="noopener"><i class="fab fa-vk" aria-hidden="true"></i> Вступить в сообщество</a>
+    </div>
+  </section>
+
+  <!-- PROMO -->
+  <section class="promo">
+    <div class="wrap promo__in">
+      <div>
+        <h2 class="h2">−20% на первый заказ</h2>
+        <p>Назови промокод, когда оформляешь заказ во ВКонтакте. На Ozon он не действует.</p>
+      </div>
+      <div class="promo__code">
+        <span id="promoCode">PIPA20</span>
+        <button class="btn btn--line" id="copyBtn" type="button"><i class="fas fa-copy" aria-hidden="true"></i> <span>Скопировать</span></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHERE TO BUY -->
+  <section class="sec sec--concrete" id="buy">
+    <div class="wrap">
+      <h2 class="h2">Где купить</h2>
+      <div class="buy">
+        <div class="buy__card">
+          <h3 class="h3">Ozon</h3>
+          <ul>
+            <li>Доставка в пункт выдачи или курьером по всей России</li>
+            <li>Оплата картой или при получении, примерка на месте</li>
+            <li>Возврат по правилам Ozon</li>
+            <li>Отзывы покупателей с фото — в карточках моделей</li>
+          </ul>
+          <a class="btn btn--red" href="https://www.ozon.ru/seller/pipa-1613537/" target="_blank" rel="noopener"><i class="fas fa-bag-shopping" aria-hidden="true"></i> Магазин PIPA на Ozon</a>
+        </div>
+        <div class="buy__card">
+          <h3 class="h3">ВКонтакте</h3>
+          <ul>
+            <li>Напиши в сообщения группы — поможем выбрать модель</li>
+            <li>Оплата картой, по СБП или переводом</li>
+            <li>Отправка из Казани СДЭКом, Яндекс Доставкой или Почтой, 2–7 рабочих дней</li>
+            <li>Скидка 20% на первый заказ по промокоду PIPA20</li>
+          </ul>
+          <a class="btn btn--ink" href="https://vk.com/pipa_sila" target="_blank" rel="noopener"><i class="fab fa-vk" aria-hidden="true"></i> Написать в @pipa_sila</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="sec" id="faq">
+    <div class="wrap faq">
+      <h2 class="h2">Вопросы</h2>
+      <div class="faq__list">
+        <details>
+          <summary>Какой размер у бейсболок?</summary>
+          <p>Snapback с регулировкой сзади, обхват 55–61 см. У моделей высокая тулья и изогнутый козырёк — посмотри фото на людях в карточке на Ozon, чтобы понять посадку.</p>
+        </details>
+        <details>
+          <summary>Чем зимняя шапка отличается от осенней?</summary>
+          <p>Обе из 50% шерсти и 50% акрила. Осенняя — однослойная и лёгкая, зимняя — плотная двойная вязка для мороза. Обе приходят в бархатном мешочке PIPA.</p>
+        </details>
+        <details>
+          <summary>Повторяются ли модели?</summary>
+          <p>PIPA выпускает модели ограниченными партиями. Самые любимые иногда возвращаются новым дропом, некоторые уходят навсегда. Новости — во ВКонтакте.</p>
+        </details>
+        <details>
+          <summary>Есть ли скидки?</summary>
+          <p>Да: промокод PIPA20 даёт 20% на первый заказ через ВКонтакте. На Ozon промокод не работает, но там бывают акции маркетплейса.</p>
+        </details>
+        <details>
+          <summary>Откуда бренд?</summary>
+          <p>Из Казани. PIPA вдохновлён уличной культурой нулевых, когда шапка была не просто вещью, а знаком.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__in">
+    <img src="images/logo-light.png" alt="PIPA" width="104" height="80" loading="lazy">
+    <nav class="foot__links" aria-label="Ссылки">
+      <a href="https://www.ozon.ru/seller/pipa-1613537/" target="_blank" rel="noopener">PIPA на Ozon</a>
+      <a href="https://vk.com/pipa_sila" target="_blank" rel="noopener">ВКонтакте @pipa_sila</a>
+      <button type="button" id="privacyBtn">Конфиденциальность</button>
+    </nav>
+    <p class="foot__copy">© 2026 PIPA. Стиль улиц. Казань.</p>
+  </div>
+</footer>
+
+<dialog id="privacy" class="privacy">
+  <h2 class="h3">Конфиденциальность</h2>
+  <p>Сайт pipasila.ru — витрина бренда PIPA.</p>
+  <p>Мы не собираем персональные данные: на сайте нет форм, регистрации, файлов cookie и счётчиков аналитики.</p>
+  <p>Покупки оформляются на Ozon или во ВКонтакте — по правилам и политике конфиденциальности этих площадок.</p>
+  <button type="button" class="btn btn--ink" id="privacyClose">Понятно</button>
+</dialog>
+
+<script src="js/main.js?v=5"></script>
 </body>
 </html>
-
