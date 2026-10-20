@@ -391,3 +391,19 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .reviews__more { margin-top: 32px; }
 @media (max-width: 1100px) { .reviews__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 560px) { .reviews__grid { grid-template-columns: 1fr; } }
+
+/* ── первый экран по высоте окна, тонкие ленты ── */
+.run { padding: 9px 0; }
+.run__set span { font-size: clamp(14px, 1.15vw, 17px); padding: 0 16px; }
+.run__crown { width: 16px; height: 12px; }
+.run--quotes .run__set span { font-size: clamp(14px, 1.1vw, 16px); }
+.run--tilt .run__set span { font-size: clamp(16px, 1.5vw, 21px); }
+.run--tilt { padding: 12px 0; }
+
+@media (min-width: 901px) {
+  .hero__photo img {
+    aspect-ratio: auto;
+    height: clamp(480px, calc(100svh - 72px - 38px - 88px), 820px);
+  }
+  .hero__text { padding-top: 40px; padding-bottom: 40px; }
+}
